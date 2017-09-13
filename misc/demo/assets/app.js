@@ -52,7 +52,7 @@ function MainCtrl($scope, $http, $document, $uibModal, orderByFilter) {
   $scope.isCollapsed = true;
 
   // Grab old version docs
-  $http.get('/bootstrap/versions-mapping.json')
+  $http.get('/ui-bootstrap4/versions-mapping.json')
     .then(function(result) {
       $scope.oldDocs = result.data;
     });
