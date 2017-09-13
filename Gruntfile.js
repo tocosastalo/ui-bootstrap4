@@ -93,6 +93,14 @@ module.exports = function(grunt) {
           cwd: 'misc/demo',
           dest: 'dist/'
         }]
+      },
+      docs: {
+        files:[{
+          expand: true,
+          src: ['**/*', '*/*'],
+          cwd: 'dist/',
+          dest: 'docs/'
+        }]
       }
     },
     uglify: {
@@ -204,6 +212,9 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['before-test', 'test', 'after-test']);
+
+  // Build docs
+  grunt.registerTask('docs', ['after-test', 'copy:docs']);
 
   //Common ui.bootstrap module containing all modules for src and templates
   //findModule: Adds a given module to config
