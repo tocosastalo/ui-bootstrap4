@@ -559,7 +559,7 @@ angular.module('ui.bootstrap.position', [])
       positionArrow: function(elem, placement) {
         elem = this.getRawNode(elem);
 
-        var innerElem = elem.querySelector('.tooltip-inner, .popover-inner');
+        var innerElem = elem.querySelector('.tooltip-inner, .popover');
         if (!innerElem) {
           return;
         }

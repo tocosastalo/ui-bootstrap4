@@ -1,8 +1,6 @@
 <div class="arrow"></div>
 
-<div class="popover-inner">
-    <h3 class="popover-title" ng-bind="uibTitle" ng-if="uibTitle"></h3>
-    <div class="popover-content"
-      uib-tooltip-template-transclude="contentExp()"
-      tooltip-template-transclude-scope="originScope()"></div>
-</div>
+<h3 class="popover-header" ng-bind="uibTitle" ng-if="uibTitle"></h3>
+<div class="popover-body"
+  uib-tooltip-template-transclude="contentExp()"
+  tooltip-template-transclude-scope="originScope()"></div>

@@ -13,7 +13,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
   // The default options tooltip and popover.
   var defaultOptions = {
     placement: 'top',
-    placementClassPrefix: '',
+    placementClassPrefix: 'bs-tooltip-',
     animation: true,
     popupDelay: 0,
     popupCloseDelay: 0,
@@ -129,7 +129,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
           'class="uib-position-measure ' + prefix + '" ' +
           'tooltip-animation-class="fade"' +
           'uib-tooltip-classes ' +
-          'ng-class="{ in: isOpen }" ' +
+          'ng-class="{ show: isOpen }" ' +
           '>' +
         '</div>';
 
@@ -348,7 +348,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
 
               if (tooltip) {
                 tooltip.remove();
-                
+
                 tooltip = null;
                 if (adjustmentTimeout) {
                   $timeout.cancel(adjustmentTimeout);
@@ -356,7 +356,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
               }
 
               openedTooltips.remove(ttScope);
-              
+
               if (tooltipLinkedScope) {
                 tooltipLinkedScope.$destroy();
                 tooltipLinkedScope = null;

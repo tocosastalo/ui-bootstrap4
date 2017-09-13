@@ -2670,7 +2670,7 @@ angular.module('ui.bootstrap.position', [])
       positionArrow: function(elem, placement) {
         elem = this.getRawNode(elem);
 
-        var innerElem = elem.querySelector('.tooltip-inner, .popover-inner');
+        var innerElem = elem.querySelector('.tooltip-inner, .popover');
         if (!innerElem) {
           return;
         }
@@ -4908,7 +4908,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
   // The default options tooltip and popover.
   var defaultOptions = {
     placement: 'top',
-    placementClassPrefix: '',
+    placementClassPrefix: 'bs-tooltip-',
     animation: true,
     popupDelay: 0,
     popupCloseDelay: 0,
@@ -5024,7 +5024,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
           'class="uib-position-measure ' + prefix + '" ' +
           'tooltip-animation-class="fade"' +
           'uib-tooltip-classes ' +
-          'ng-class="{ in: isOpen }" ' +
+          'ng-class="{ show: isOpen }" ' +
           '>' +
         '</div>';
 
@@ -5243,7 +5243,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
 
               if (tooltip) {
                 tooltip.remove();
-                
+
                 tooltip = null;
                 if (adjustmentTimeout) {
                   $timeout.cancel(adjustmentTimeout);
@@ -5251,7 +5251,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
               }
 
               openedTooltips.remove(ttScope);
-              
+
               if (tooltipLinkedScope) {
                 tooltipLinkedScope.$destroy();
                 tooltipLinkedScope = null;
@@ -5636,6 +5636,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
 
 .directive('uibPopoverTemplate', ['$uibTooltip', function($uibTooltip) {
   return $uibTooltip('uibPopoverTemplate', 'popover', 'click', {
+    placementClassPrefix: 'bs-popover-',
     useContentExp: true
   });
 }])
@@ -5650,6 +5651,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
 
 .directive('uibPopoverHtml', ['$uibTooltip', function($uibTooltip) {
   return $uibTooltip('uibPopoverHtml', 'popover', 'click', {
+    placementClassPrefix: 'bs-popover-',
     useContentExp: true
   });
 }])
@@ -5663,7 +5665,9 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
 })
 
 .directive('uibPopover', ['$uibTooltip', function($uibTooltip) {
-  return $uibTooltip('uibPopover', 'popover', 'click');
+  return $uibTooltip('uibPopover', 'popover', 'click', {
+    placementClassPrefix: 'bs-popover-'
+  });
 }]);
 
 angular.module('ui.bootstrap.progressbar', [])
@@ -7658,21 +7662,21 @@ angular.module("uib/template/pagination/pagination.html", []).run(["$templateCac
 
 angular.module("uib/template/tooltip/tooltip-html-popup.html", []).run(["$templateCache", function ($templateCache) {
   $templateCache.put("uib/template/tooltip/tooltip-html-popup.html",
-    "<div class=\"tooltip-arrow\"></div>\n" +
+    "<div class=\"arrow\"></div>\n" +
     "<div class=\"tooltip-inner\" ng-bind-html=\"contentExp()\"></div>\n" +
     "");
 }]);
 
 angular.module("uib/template/tooltip/tooltip-popup.html", []).run(["$templateCache", function ($templateCache) {
   $templateCache.put("uib/template/tooltip/tooltip-popup.html",
-    "<div class=\"tooltip-arrow\"></div>\n" +
+    "<div class=\"arrow\"></div>\n" +
     "<div class=\"tooltip-inner\" ng-bind=\"content\"></div>\n" +
     "");
 }]);
 
 angular.module("uib/template/tooltip/tooltip-template-popup.html", []).run(["$templateCache", function ($templateCache) {
   $templateCache.put("uib/template/tooltip/tooltip-template-popup.html",
-    "<div class=\"tooltip-arrow\"></div>\n" +
+    "<div class=\"arrow\"></div>\n" +
     "<div class=\"tooltip-inner\"\n" +
     "  uib-tooltip-template-transclude=\"contentExp()\"\n" +
     "  tooltip-template-transclude-scope=\"originScope()\"></div>\n" +
@@ -7682,11 +7686,8 @@ angular.module("uib/template/tooltip/tooltip-template-popup.html", []).run(["$te
 angular.module("uib/template/popover/popover-html.html", []).run(["$templateCache", function ($templateCache) {
   $templateCache.put("uib/template/popover/popover-html.html",
     "<div class=\"arrow\"></div>\n" +
-    "\n" +
-    "<div class=\"popover-inner\">\n" +
-    "    <h3 class=\"popover-title\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n" +
-    "    <div class=\"popover-content\" ng-bind-html=\"contentExp()\"></div>\n" +
-    "</div>\n" +
+    "<h3 class=\"popover-header\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n" +
+    "<div class=\"popover-body\" ng-bind-html=\"contentExp()\"></div>\n" +
     "");
 }]);
 
@@ -7694,23 +7695,18 @@ angular.module("uib/template/popover/popover-template.html", []).run(["$template
   $templateCache.put("uib/template/popover/popover-template.html",
     "<div class=\"arrow\"></div>\n" +
     "\n" +
-    "<div class=\"popover-inner\">\n" +
-    "    <h3 class=\"popover-title\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n" +
-    "    <div class=\"popover-content\"\n" +
-    "      uib-tooltip-template-transclude=\"contentExp()\"\n" +
-    "      tooltip-template-transclude-scope=\"originScope()\"></div>\n" +
-    "</div>\n" +
+    "<h3 class=\"popover-header\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n" +
+    "<div class=\"popover-body\"\n" +
+    "  uib-tooltip-template-transclude=\"contentExp()\"\n" +
+    "  tooltip-template-transclude-scope=\"originScope()\"></div>\n" +
     "");
 }]);
 
 angular.module("uib/template/popover/popover.html", []).run(["$templateCache", function ($templateCache) {
   $templateCache.put("uib/template/popover/popover.html",
     "<div class=\"arrow\"></div>\n" +
-    "\n" +
-    "<div class=\"popover-inner\">\n" +
-    "    <h3 class=\"popover-title\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n" +
-    "    <div class=\"popover-content\" ng-bind=\"content\"></div>\n" +
-    "</div>\n" +
+    "<h3 class=\"popover-header\" ng-bind=\"uibTitle\" ng-if=\"uibTitle\"></h3>\n" +
+    "<div class=\"popover-body\" ng-bind=\"content\"></div>\n" +
     "");
 }]);
 

@@ -15,6 +15,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
 
 .directive('uibPopoverTemplate', ['$uibTooltip', function($uibTooltip) {
   return $uibTooltip('uibPopoverTemplate', 'popover', 'click', {
+    placementClassPrefix: 'bs-popover-',
     useContentExp: true
   });
 }])
@@ -29,6 +30,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
 
 .directive('uibPopoverHtml', ['$uibTooltip', function($uibTooltip) {
   return $uibTooltip('uibPopoverHtml', 'popover', 'click', {
+    placementClassPrefix: 'bs-popover-',
     useContentExp: true
   });
 }])
@@ -42,5 +44,7 @@ angular.module('ui.bootstrap.popover', ['ui.bootstrap.tooltip'])
 })
 
 .directive('uibPopover', ['$uibTooltip', function($uibTooltip) {
-  return $uibTooltip('uibPopover', 'popover', 'click');
+  return $uibTooltip('uibPopover', 'popover', 'click', {
+    placementClassPrefix: 'bs-popover-'
+  });
 }]);
