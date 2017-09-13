@@ -175,3 +175,24 @@ We are always looking for the quality contributions! Please check the [CONTRIBUT
 # Development, meeting minutes, roadmap and more.
 
 Head over to the [Wiki](https://github.com/morgul/ui-bootstrap4/wiki) for notes on development for UI Bootstrap, meeting minutes from the UI Bootstrap team, roadmap plans, project philosophy and more.
+
+----
+
+## Building a Release
+
+To build a release, change `package.json` to have the right version number, do `grunt build`, delete everything except 
+for:
+
+* `ui-bootstrap-[VERSION].js`
+* `ui-bootstrap-[VERSION]-csp.css`
+* `ui-bootstrap-tpls-[VERSION].js`
+
+These files get renamed to remove the `[VERSION]` piece:
+
+* `ui-bootstrap-[VERSION].js` => `ui-bootstrap.js`
+* `ui-bootstrap-[VERSION]-csp.css` => `ui-bootstrap-csp.css`
+* `ui-bootstrap-tpls-[VERSION].js` => `ui-bootstrap-tpls.js`
+
+Now run `npm publish`.
+
+_TODO: Something about updating docs?_
