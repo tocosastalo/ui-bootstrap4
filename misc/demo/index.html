@@ -58,14 +58,16 @@
 </header>
 <div role="main">
     <header class="bs-header text-center" id="overview">
+        <h1 class="text-center">UI Bootstrap 4</h1>
+
+        <p class="text-center">
+            Bootstrap components written in pure <a href="http://angularjs.org">AngularJS</a>
+            by the <a href="http://angular-ui.github.io">AngularUI Team</a>
+        </p>
+        <p class="text-center">
+            <small>Ported to Bootstrap 4 by <a href="https://github.com/Morgul">Morgul</a></small>
+        </p>
         <div class="container">
-            <h1>
-                UI Bootstrap 4
-            </h1>
-
-            <p>Bootstrap components written in pure <a href="http://angularjs.org">AngularJS</a> by the <a
-                    href="http://angular-ui.github.io">AngularUI Team</a></p>
-
             <p>
                 <a class="btn btn-outline-inverse btn-lg" href="https://github.com/angular-ui/bootstrap"><i class="icon-github"></i>Code on Github</a>
                 <button type="button" class="btn btn-outline-inverse btn-lg" ng-click="showDownloadModal()">
@@ -132,13 +134,6 @@
                     <div class="page-header">
                         <h1>Getting started</h1>
                     </div>
-                    <h3>Angular 2</h3>
-                    <p>
-                        For Angular 2 support, check out
-                        <a href="https://ng-bootstrap.github.io" target="_blank">
-                          ng-bootstrap
-                        </a>, created by the UI Bootstrap team.
-                    </p>
                     <h3>Dependencies</h3>
                     <p>
                         This repository contains a set of <strong>native AngularJS directives</strong> based on
@@ -152,7 +147,8 @@
                         <li><a href="http://angularjs.org" target="_blank">Angular-animate</a> (the version should match with your angular's, tested with <%= ngversion %>) if you plan in using animations, you need to load angular-animate as well.</li>
                         <li><a href="http://angularjs.org" target="_blank">Angular-touch</a> (the version should match with your angular's, tested with <%= ngversion %>) if you plan in using swipe actions, you need to load angular-touch as well.</li>
                         <li><a href="http://getbootstrap.com" target="_blank">Bootstrap CSS</a> (tested with version <%= bsversion %>).
-                            This version of the library (<%= pkg.version%>) works only with Bootstrap CSS in version 3.x.
+                            This version of the library (<%= pkg.version%>) works only with Bootstrap CSS in version 4.x.
+                            2.5.0 is the last version of this library that supports Bootstrap CSS in version 3.x.x.
                             0.8.0 is the last version of this library that supports Bootstrap CSS in version 2.3.x.
                         </li>
                     </ul>
@@ -296,7 +292,7 @@
           <div class="form-group">
             <label class="col-sm-3 control-label"><strong>npm</strong></label>
             <div class="col-sm-9">
-              <pre style="margin-bottom:0;">npm install angular-ui-bootstrap</pre>
+              <pre style="margin-bottom:0;">npm install ui-bootstrap4</pre>
               <small class="help-block"><a href="https://www.npmjs.com/" target="_blank">npm</a> is a package manager for the web.</small>
             </div>
           </div>

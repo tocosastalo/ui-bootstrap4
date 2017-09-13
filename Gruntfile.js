@@ -214,7 +214,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['before-test', 'test', 'after-test']);
 
   // Build docs
-  grunt.registerTask('docs', ['after-test', 'copy:docs']);
+  grunt.registerTask('docs', ['before-test', 'after-test', 'copy:docs']);
 
   //Common ui.bootstrap module containing all modules for src and templates
   //findModule: Adds a given module to config
