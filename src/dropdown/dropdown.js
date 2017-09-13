@@ -314,7 +314,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
       self.dropdownMenu.css(css);
     }
 
-    var openContainer = appendTo ? appendTo : $element;
+    var openContainer = appendTo ? appendTo : self.dropdownMenu;
     var dropdownOpenClass = appendTo ? appendToOpenClass : openClass;
     var hasOpenClass = openContainer.hasClass(dropdownOpenClass);
     var isOnlyOpen = uibDropdownService.isOnlyOpen($scope, appendTo);
