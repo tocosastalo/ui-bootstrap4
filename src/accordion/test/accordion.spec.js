@@ -412,8 +412,8 @@ describe('uib-accordion', function() {
       });
 
       it('should have visible panel body when the group with isOpen set to true', function() {
-        expect(findGroupBody(0)).toHaveClass('in');
-        expect(findGroupBody(1)).not.toHaveClass('in');
+        expect(findGroupBody(0)).toHaveClass('show');
+        expect(findGroupBody(1)).not.toHaveClass('show');
       });
     });
 
