@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     ngversion: '1.6.1',
-    bsversion: '3.3.7',
+    bsversion: '4.0.0-beta',
     modules: [],//to be filled in by build task
     pkg: grunt.file.readJSON('package.json'),
     dist: 'dist',
@@ -70,12 +70,20 @@ module.exports = function(grunt) {
           //process html files with gruntfile config
           processContent: grunt.template.process
         },
-        files: [{
-          expand: true,
-          src: ['**/*.html'],
-          cwd: 'misc/demo/',
-          dest: 'dist/'
-        }]
+        files: [
+          {
+            expand: true,
+            src: ['**/*.html'],
+            cwd: 'misc/demo/',
+            dest: 'dist/'
+          },
+          {
+            expand: true,
+            src: ['svg-icon.css'],
+            cwd: 'src/',
+            dest: 'dist/'
+          }
+        ]
       },
       demoassets: {
         files: [{
@@ -84,6 +92,14 @@ module.exports = function(grunt) {
           src: ['**/**/*', '!**/*.html'],
           cwd: 'misc/demo',
           dest: 'dist/'
+        }]
+      },
+      docs: {
+        files:[{
+          expand: true,
+          src: ['**/*', '*/*'],
+          cwd: 'dist/',
+          dest: 'docs/'
         }]
       }
     },
@@ -186,7 +202,7 @@ module.exports = function(grunt) {
 
   //register before and after test tasks so we've don't have to change cli
   //options on the google's CI server
-  grunt.registerTask('before-test', ['enforce', 'ddescribe-iit', 'eslint', 'html2js']);
+  grunt.registerTask('before-test', ['ddescribe-iit', 'eslint', 'html2js']);
   grunt.registerTask('after-test', ['build', 'copy']);
 
   //Rename our watch task to 'delta', then make actual 'watch'
@@ -197,12 +213,8 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['before-test', 'test', 'after-test']);
 
-  grunt.registerTask('enforce', `Install commit message enforce script if it doesn't exist`, function() {
-    if (!grunt.file.exists('.git/hooks/commit-msg')) {
-      grunt.file.copy('misc/validate-commit-msg.js', '.git/hooks/commit-msg');
-      require('fs').chmodSync('.git/hooks/commit-msg', '0755');
-    }
-  });
+  // Build docs
+  grunt.registerTask('docs', ['after-test', 'copy:docs']);
 
   //Common ui.bootstrap module containing all modules for src and templates
   //findModule: Adds a given module to config
@@ -397,13 +409,13 @@ module.exports = function(grunt) {
         version = version.replace(/^v/, '');
         return {
           version: version,
-          url: `/bootstrap/versioned-docs/${version}`
+          url: `/angular-ui-bootstrap4/versioned-docs/${version}`
         };
       });
       jsContent = _.sortBy(jsContent, 'version').reverse();
       jsContent.unshift({
         version: 'Current',
-        url: '/bootstrap'
+        url: '/angular-ui-bootstrap4'
       });
       grunt.file.write(versionsMappingFile, JSON.stringify(jsContent));
       grunt.log.writeln(`File ${versionsMappingFile.cyan} created.`);

@@ -64,7 +64,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
     },
     scope: {
       heading: '@',               // Interpolate the heading attribute onto this scope
-      panelClass: '@?',           // Ditto with panelClass
+      cardClass: '@?',           // Ditto with cardClass
       isOpen: '=?',
       isDisabled: '=?'
     },
@@ -74,11 +74,11 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
       };
     },
     link: function(scope, element, attrs, accordionCtrl) {
-      element.addClass('panel');
+      element.addClass('card');
       accordionCtrl.addGroup(scope);
 
-      scope.openClass = attrs.openClass || 'panel-open';
-      scope.panelClass = attrs.panelClass || 'panel-default';
+      scope.openClass = attrs.openClass || 'card-open';
+      scope.cardClass = attrs.cardClass || 'card-default';
       scope.$watch('isOpen', function(value) {
         element.toggleClass(scope.openClass, !!value);
         if (value) {
@@ -96,7 +96,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse', 'ui.bootstrap
 
       var id = 'accordiongroup-' + scope.$id + '-' + Math.floor(Math.random() * 10000);
       scope.headingId = id + '-tab';
-      scope.panelId = id + '-panel';
+      scope.cardId = id + '-card';
     }
   };
 })

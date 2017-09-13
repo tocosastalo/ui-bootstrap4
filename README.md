@@ -1,3 +1,18 @@
+# Angular UI Bootstrap 4
+
+This is a fork of the original [angular-ui-bootstrap][] project. It has been modified to work with Bootstrap 4. The reason this repository exists is because some applications are choosing (or are forced to chose) to stap with Angular 1, but would like to move to Bootstrap 4. (Especially considering the fact that [bootstrap 3 is EoL](https://github.com/twbs/bootstrap/issues/20631).)
+
+This for makes as few changes as possible to the original source code, so that upstream changes can be merged in with minimal issues. Some work has been used from other attempts to do the same thing, such as the fork from [dietergeerts][].
+
+[dietergeerts]: https://github.com/dietergeerts/bootstrap
+[angular-ui-bootstrap]: https://github.com/angular-ui/bootstrap
+
+---
+
+**Original Readme**
+
+---
+
 ### UI Bootstrap - [AngularJS](http://angularjs.org/) directives specific to [Bootstrap](http://getbootstrap.com)
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angular-ui/bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

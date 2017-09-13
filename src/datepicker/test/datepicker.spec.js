@@ -35,7 +35,7 @@ describe('datepicker', function() {
   }
 
   function getTitle() {
-    return getTitleButton().text();
+    return getTitleButton().text().trim();
   }
 
   function clickTitleButton() {
