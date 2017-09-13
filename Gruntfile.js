@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     ngversion: '1.6.1',
-    bsversion: '3.3.7',
+    bsversion: '4.0.0-beta',
     modules: [],//to be filled in by build task
     pkg: grunt.file.readJSON('package.json'),
     dist: 'dist',
@@ -70,12 +70,20 @@ module.exports = function(grunt) {
           //process html files with gruntfile config
           processContent: grunt.template.process
         },
-        files: [{
-          expand: true,
-          src: ['**/*.html'],
-          cwd: 'misc/demo/',
-          dest: 'dist/'
-        }]
+        files: [
+          {
+            expand: true,
+            src: ['**/*.html'],
+            cwd: 'misc/demo/',
+            dest: 'dist/'
+          },
+          {
+            expand: true,
+            src: ['svg-icon.css'],
+            cwd: 'src/',
+            dest: 'dist/'
+          }
+        ]
       },
       demoassets: {
         files: [{

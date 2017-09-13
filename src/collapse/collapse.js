@@ -94,7 +94,7 @@ angular.module('ui.bootstrap.collapse', [])
               // Otherwise, the browser attempts to animate from width 0 (in
               // collapsing class) to the given width here.
                 .css(getScrollFromElement(element[0]))
-                // initially all panel collapse have the collapse class, this removal
+                // initially all card collapse have the collapse class, this removal
                 // prevents the animation from jumping to collapsed state
                 .removeClass('collapse')
                 .addClass('collapsing')
