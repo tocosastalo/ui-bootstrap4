@@ -49,6 +49,8 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap', 'plunker', 'ngTouch', 'ngAn
 .controller('DownloadCtrl', DownloadCtrl);
 
 function MainCtrl($scope, $http, $document, $uibModal, orderByFilter) {
+  $scope.isCollapsed = true;
+
   // Grab old version docs
   $http.get('/bootstrap/versions-mapping.json')
     .then(function(result) {

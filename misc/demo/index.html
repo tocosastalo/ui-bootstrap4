@@ -2,11 +2,10 @@
 <html lang="en" ng-app="ui.bootstrap.demo" id="top">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="assets/favicon.ico" />
-    <title>Angular directives for Bootstrap</title>
-    <meta name="description" content="AngularJS (Angular) native directives for Bootstrap. Small footprint (5kB gzipped!), no 3rd party JS dependencies (jQuery, bootstrap JS) required! Widgets: <% demoModules.forEach(function(module) { %><%= module.displayName %>, <% }); %>">
+    <title>Angular directives for Bootstrap 4</title>
+    <meta name="description" content="AngularJS (Angular) native directives for Bootstrap 4. Small footprint (5kB gzipped!), no 3rd party JS dependencies (jQuery, bootstrap JS) required! Widgets: <% demoModules.forEach(function(module) { %><%= module.displayName %>, <% }); %>">
     <meta name="google-site-verification" content="7lc5HyceLDqpV_6oNHteYFfxDJH7-S3DwnJKtNUKcRg" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.7/fastclick.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.0.0/FileSaver.min.js"></script>
@@ -26,57 +25,42 @@
     <link rel="author" href="https://github.com/angular-ui/bootstrap/graphs/contributors">
 </head>
 <body class="ng-cloak" ng-controller="MainCtrl">
-<header class="navbar navbar-default navbar-fixed-top navbar-inner">
+<header class="navbar navbar-light sticky-top navbar-expand-md bg-light">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" ng-click="isCollapsed = !isCollapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand visible-xs" href="#">UI Bootstrap</a>
+        <a class="navbar-brand visible-xs" href="#">UI Bootstrap 4</a>
+        <button type="button" class="navbar-toggler" ng-click="isCollapsed = !isCollapsed">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" uib-collapse="isCollapsed">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown" uib-dropdown>
+                    <a class="nav-link dropdown-toggle" uib-dropdown-toggle id="directivesMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Directives
+                    </a>
+                    <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="directivesMenuLink">
+                        <% demoModules.forEach(function(module) {  %><a class="dropdown-item" href="#<%= module.name %>"><%= module.displayName %></a><% }); %>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#getting_started">Getting started</a>
+                </li>
+                <li class="nav-item dropdown" uib-dropdown>
+                    <a class="nav-link dropdown-toggle" uib-dropdown-toggle id="previousDocsMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Previous docs
+                    </a>
+                    <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="previousDocsMenuLink">
+                        <a class="dropdown-item" ng-href="{{version.url}}" ng-repeat="version in oldDocs">{{version.version}}</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <nav class="hidden-xs">
-            <ul class="nav navbar-nav">
-                <a href="#top" role="button" class="navbar-brand">
-                    UI Bootstrap
-                </a>
-                <li class="dropdown" uib-dropdown>
-                    <a role="button" class="dropdown-toggle" uib-dropdown-toggle>
-                        Directives <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <% demoModules.forEach(function(module) {  %><li><a href="#<%= module.name %>"><%= module.displayName %></a></li><% }); %>
-                    </ul>
-                </li>
-                <li><a href="#getting_started">Getting started</a></li>
-                <li class="dropdown" uib-dropdown>
-                    <a role="button" class="dropdown-toggle" uib-dropdown-toggle>
-                        Previous docs <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li ng-repeat="version in oldDocs">
-                            <a ng-href="{{version.url}}">{{version.version}}</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <nav class="visible-xs" uib-collapse="!isCollapsed">
-            <ul class="nav navbar-nav">
-                <li><a href="#getting_started" ng-click="isCollapsed = !isCollapsed">Getting started</a></li>
-                <li><a href="#directives_small" ng-click="isCollapsed = !isCollapsed">Directives</a></li>
-            </ul>
-        </nav>
     </div>
 </header>
-<div class="header-placeholder"></div>
 <div role="main">
     <header class="bs-header text-center" id="overview">
         <div class="container">
             <h1>
-                UI Bootstrap
+                UI Bootstrap 4
             </h1>
 
             <p>Bootstrap components written in pure <a href="http://angularjs.org">AngularJS</a> by the <a
@@ -144,15 +128,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <section class="bs-sidebar visible-xs" id="directives_small">
-                    <ul class="nav bs-sidenav">
-                        <li><a href="#"><strong>Directives</strong></a></li>
-                        <% demoModules.forEach(function(module) {  %>
-                            <li><a href="#<%= module.name %>"><%= module.displayName %></a></li>
-                        <% }); %>
-                    </ul>
-                </section>
-
                 <section id="getting_started">
                     <div class="page-header">
                         <h1>Getting started</h1>
