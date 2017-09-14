@@ -196,7 +196,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
   scope.focusDropdownEntry = function(keyCode) {
     var elems = self.dropdownMenu ? //If append to body is used.
       angular.element(self.dropdownMenu).find('a') :
-      $element.find('ul').eq(0).find('a');
+      $element.find('div').eq(0).find('a');
 
     switch (keyCode) {
       case 40: {
@@ -314,7 +314,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
       self.dropdownMenu.css(css);
     }
 
-    var openContainer = appendTo ? appendTo : self.dropdownMenu;
+    var openContainer = appendTo ? appendTo : $element.find('div');
     var dropdownOpenClass = appendTo ? appendToOpenClass : openClass;
     var hasOpenClass = openContainer.hasClass(dropdownOpenClass);
     var isOnlyOpen = uibDropdownService.isOnlyOpen($scope, appendTo);
@@ -356,7 +356,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
         if (templateScope) {
           templateScope.$destroy();
         }
-        var newEl = angular.element('<ul class="dropdown-menu"></ul>');
+        var newEl = angular.element('<div class="dropdown-menu"></div>');
         self.dropdownMenu.replaceWith(newEl);
         self.dropdownMenu = newEl;
       }
