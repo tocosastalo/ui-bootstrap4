@@ -558,15 +558,18 @@ angular.module('ui.bootstrap.position', [])
        */
       positionArrow: function(elem, placement) {
         elem = this.getRawNode(elem);
+        var isTooltip = true;
 
-        var innerElem = elem.querySelector('.tooltip-inner, .popover');
+        var innerElem = elem.querySelector('.tooltip-inner');
         if (!innerElem) {
-          return;
+          if (angular.element(elem).hasClass('popover')) {
+            isTooltip = false;
+          } else {
+            return;
+          }
         }
 
-        var isTooltip = angular.element(innerElem).hasClass('tooltip-inner');
-
-        var arrowElem = isTooltip ? elem.querySelector('.tooltip-arrow') : elem.querySelector('.arrow');
+        var arrowElem = elem.querySelector('.arrow');
         if (!arrowElem) {
           return;
         }
@@ -580,9 +583,18 @@ angular.module('ui.bootstrap.position', [])
 
         placement = this.parsePlacement(placement);
         if (placement[1] === 'center') {
-          // no adjustment necessary - just reset styles
-          angular.element(arrowElem).css(arrowCss);
-          return;
+          var arrowElemOffset = this.offset(arrowElem);
+          if (PLACEMENT_REGEX.vertical.test(placement[0])) {
+            var aHW = arrowElemOffset.width / 2;
+            var eHW = this.offset(elem).width / 2;
+            var left = eHW - aHW;
+            arrowCss.left = '' + left + 'px';
+          } else {
+            var aHH = arrowElemOffset.height / 2;
+            var eHH = this.offset(elem).height / 2;
+            var top = eHH - aHH;
+            arrowCss.top = '' + top + 'px';
+          }
         }
 
         var borderProp = 'border-' + placement[0] + '-width';
@@ -613,6 +625,8 @@ angular.module('ui.bootstrap.position', [])
         }
 
         arrowCss[placement[1]] = borderRadius;
+
+        console.log('calc CSS:', arrowCss);
 
         angular.element(arrowElem).css(arrowCss);
       }
