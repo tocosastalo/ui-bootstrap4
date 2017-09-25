@@ -763,7 +763,7 @@ describe('uib-dropdown', function() {
 
   describe('using keyboard-nav', function() {
     function dropdown() {
-      return $compile('<li uib-dropdown keyboard-nav><a href uib-dropdown-toggle></a><ul uib-dropdown-menu><li><a href>Hello</a></li><li><a href>Hello Again</a></li></ul></li>')($rootScope);
+      return $compile('<div uib-dropdown keyboard-nav><button uib-dropdown-toggle></button><div uib-dropdown-menu><a href>Hello</a><a href>Hello Again</a></div></div>')($rootScope);
     }
     function getFocusedElement() {
       return angular.element(document.activeElement);
@@ -868,7 +868,7 @@ describe('uib-dropdown', function() {
       triggerKeyDown(getFocusedElement(), 40);
 
       expect(element).toHaveClass(dropdownConfig.openClass);
-      var focusEl = element.find('ul').eq(0).find('a').eq(0);
+      var focusEl = element.find('div').eq(0).find('a').eq(0);
       expect(focusEl).toHaveFocus();
 
       triggerKeyDown(getFocusedElement(), 27);

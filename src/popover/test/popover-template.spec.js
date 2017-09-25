@@ -101,7 +101,7 @@ describe('popover template', function() {
     elm.trigger('click');
     scope.$digest();
 
-    var titleEl = elmBody.find('.popover-title');
+    var titleEl = elmBody.find('.popover-header');
     expect(titleEl.text()).toBe('popover title');
   }));
 
