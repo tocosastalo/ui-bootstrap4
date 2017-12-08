@@ -290,7 +290,7 @@ angular.module('ui.bootstrap.carousel', [])
       index: '=?'
     },
     link: function (scope, element, attrs, carouselCtrl) {
-      element.addClass('item');
+      element.addClass('carousel-item');
       carouselCtrl.addSlide(scope, element);
       //when the scope is destroyed then remove the slide from the current slides array
       scope.$on('$destroy', function() {
@@ -304,9 +304,10 @@ angular.module('ui.bootstrap.carousel', [])
   };
 }])
 
-.animation('.item', ['$animateCss',
+.animation('.carousel-item', ['$animateCss',
 function($animateCss) {
   var SLIDE_DIRECTION = 'uib-slideDirection';
+  var classPrefix = 'carousel-item-';
 
   function removeClass(element, className, callback) {
     element.removeClass(className);
@@ -320,10 +321,9 @@ function($animateCss) {
       if (className === 'active') {
         var stopped = false;
         var direction = element.data(SLIDE_DIRECTION);
-        var directionClass = direction === 'next' ? 'left' : 'right';
-        var removeClassFn = removeClass.bind(this, element,
-          directionClass + ' ' + direction, done);
-        element.addClass(direction);
+        var directionClass = direction === 'next' ? classPrefix + 'left' : classPrefix + 'right';
+        var removeClassFn = removeClass.bind(this, element, [directionClass, classPrefix + direction].join(' '), done);
+        element.addClass(classPrefix + direction);
 
         $animateCss(element, {addClass: directionClass})
           .start()
@@ -339,7 +339,7 @@ function($animateCss) {
       if (className === 'active') {
         var stopped = false;
         var direction = element.data(SLIDE_DIRECTION);
-        var directionClass = direction === 'next' ? 'left' : 'right';
+        var directionClass = direction === 'next' ? classPrefix + 'left' : classPrefix + 'right';
         var removeClassFn = removeClass.bind(this, element, directionClass, done);
 
         $animateCss(element, {addClass: directionClass})
