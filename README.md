@@ -1,10 +1,12 @@
-### UI Bootstrap 4
+# UI Bootstrap 4
 
 _[AngularJS](http://angularjs.org/) directives specific to [Bootstrap](http://getbootstrap.com)_
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/morgul/ui-bootstrap4?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://secure.travis-ci.org/morgul/ui-bootstrap4.svg)](http://travis-ci.org/morgul/ui-bootstrap4)
 [![devDependency Status](https://david-dm.org/morgul/ui-bootstrap4/dev-status.svg?branch=master)](https://david-dm.org/morgul/ui-bootstrap4#info=devDependencies)
+
+## Fork
 
 This is a fork of the original [ui-bootstrap4][] project. It has been modified to work with Bootstrap 4. The reason this repository exists is because some applications are choosing (or are forced to chose) to stap with Angular 1, but would like to move to Bootstrap 4. (Especially considering the fact that [bootstrap 3 is EoL](https://github.com/twbs/bootstrap/issues/20631).)
 
@@ -13,7 +15,22 @@ This for makes as few changes as possible to the original source code, so that u
 [dietergeerts]: https://github.com/dietergeerts/bootstrap
 [ui-bootstrap4]: https://github.com/morgul/ui-bootstrap4
 
-### Quick links
+## Help Wanted
+
+I did this for a work project, and, frankly, we've gotten what we needed out of it. I'd love to see this cleaned up and maybe even maintained... but I just don't have the time myself. I'll accept merge requests, and fight with the build system... but that's basically it. If someone would like to step in, just let me know and I'll add you to the project. Just open an issue, and I'll respond.
+
+Wanting to contribute, but not take over the reigns? The things that are really holding this project back are, as I can see it:
+
+* [ ] Undocumented/confusing build system.
+    * [ ] The whole `SNAPSHOT` thing seems like it adds a lot of complexity, for very little gain.
+    * [ ] Making a release should be a single `npm` command
+    * [ ] Getting started with development should be very simple
+* [ ] Switch to ES2015
+    * [ ] The code should be cleaned up, and better formatted
+    
+I'll add more as I think of them / have the time.
+
+## Quick links
 - [Demo](#demo)
 - [Installation](#installation)
     - [NPM](#install-with-npm)
@@ -30,23 +47,23 @@ This for makes as few changes as possible to the original source code, so that u
 - [Development, meeting minutes, roadmap and more.](#development-meeting-minutes-roadmap-and-more)
 
 
-# Demo
+## Demo
 
 Do you want to see directives in action? Visit https://morgul.github.io/ui-bootstrap4/!
 
-# Installation
+## Installation
 
 Installation is easy as UI Bootstrap has minimal dependencies - only the AngularJS and Twitter Bootstrap's CSS are required.
 *Notes:*
 * Since version 0.13.0, UI Bootstrap depends on [ngAnimate](https://docs.angularjs.org/api/ngAnimate) for transitions and animations, such as the accordion, carousel, etc. Include `ngAnimate` in the module dependencies for your app in order to enable animation.
 * UI Bootstrap depends on [ngTouch](https://docs.angularjs.org/api/ngTouch) for swipe actions. Include `ngTouch` in the module dependencies for your app in order to enable swiping.
 
-## Angular Requirements
+### Angular Requirements
 * UI Bootstrap 1.0 and higher _requires_ Angular 1.4.x or higher and it has been tested with Angular 1.4.8.
 * UI Bootstrap 0.14.3 is the _last_ version that supports Angular 1.3.x.
 * UI Bootstrap 0.12.0 is the _last_ version that supports Angular 1.2.x.
 
-## Bootstrap Requirements
+### Bootstrap Requirements
 * UI Bootstrap 3.0 and higher requires Bootstrap CSS version 4.x or higher and it has been tested with Bootstrap CSS 4.0.0-beta.
 * UI Bootstrap 2.x requires Bootstrap CSS version 3.x or higher and it has been tested with Bootstrap CSS 3.3.6.
 * UI Bootstrap 0.8 is the _last_ version that supports Bootstrap CSS 2.3.x.
@@ -83,7 +100,7 @@ When you are done downloading all the dependencies and project files the only re
 angular.module('myModule', ['ui.bootstrap']);
 ```
 
-# Webpack / JSPM
+## Webpack / JSPM
 
 To use this project with webpack, follow the [NPM](#install-with-npm) instructions.
 Now, if you want to use only the accordion, you can do:
@@ -128,21 +145,21 @@ import typeahead from 'ui-bootstrap4/src/typeahead/index-nocss.js';
 angular.module('myModule', [accordion, typeahead]);
 ```
 
-# Versioning
+## Versioning
 
 Pre-2.0.0 does not follow a particular versioning system. 2.0.0 and onwards follows [semantic versioning](http://semver.org/). All release changes can be viewed on our [changelog](CHANGELOG.md).
 
-# Support
+## Support
 
-## FAQ
+### FAQ
 
 https://github.com/morgul/ui-bootstrap4/wiki/FAQ
 
-# Code of Conduct
+## Code of Conduct
 
 Take a moment to read our [Code of Conduct](CODE_OF_CONDUCT.md)
 
-## Supported browsers
+### Supported browsers
 
 Directives from this repository are automatically tested with the following browsers:
 * Chrome (stable and canary channel)
@@ -168,13 +185,13 @@ Please take a look at [CONTRIBUTING.md](CONTRIBUTING.md#you-think-youve-found-a-
 ----
 
 
-# Contributing to the project
+## Contributing to the project
 
 We are always looking for the quality contributions! Please check the [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution guidelines.
 
-# Development, meeting minutes, roadmap and more.
+~~## Development, meeting minutes, roadmap and more.~~
 
-Head over to the [Wiki](https://github.com/morgul/ui-bootstrap4/wiki) for notes on development for UI Bootstrap, meeting minutes from the UI Bootstrap team, roadmap plans, project philosophy and more.
+~~Head over to the [Wiki](https://github.com/morgul/ui-bootstrap4/wiki) for notes on development for UI Bootstrap, meeting minutes from the UI Bootstrap team, roadmap plans, project philosophy and more.~~
 
 ----
 
