@@ -1,3 +1,8 @@
+<a name="3.0.0-beta.4"></a>
+# [3.0.0-beta.4](https://github.com/morgul/ui-bootstrap4/compare/2.5.0...3.0.0-beta.4) (2017-12-10)
+
+
+
 <a name="2.5.0"></a>
 # [2.5.0](https://github.com/angular-ui/bootstrap/compare/2.4.0...v2.5.0) (2017-01-28)
 
