@@ -202,7 +202,7 @@ module.exports = function(grunt) {
 
   //register before and after test tasks so we've don't have to change cli
   //options on the google's CI server
-  grunt.registerTask('before-test', ['ddescribe-iit', 'eslint', 'html2js']);
+  grunt.registerTask('before-test', [/*'ddescribe-iit',*/ 'eslint', 'html2js']);
   grunt.registerTask('after-test', ['build', 'copy']);
 
   //Rename our watch task to 'delta', then make actual 'watch'
