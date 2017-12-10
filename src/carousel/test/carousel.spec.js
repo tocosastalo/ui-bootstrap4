@@ -243,7 +243,7 @@ describe('carousel', function() {
     });
 
     it('should bind the content to slides', function() {
-      var contents = elm.find('div.item [ng-transclude]');
+      var contents = elm.find('div.carousel-item [ng-transclude]');
 
       expect(contents.length).toBe(3);
       expect(contents.eq(0).text()).toBe('one');
@@ -300,13 +300,13 @@ describe('carousel', function() {
       testSlideActive(2);
       scope.$apply('slides.splice(2,1)');
       $timeout.flush(0);
-      expect(elm.find('div.item').length).toBe(2);
+      expect(elm.find('div.carousel-item').length).toBe(2);
       testSlideActive(1);
       $interval.flush(scope.interval);
       testSlideActive(0);
       scope.$apply('slides.splice(1,1)');
       $timeout.flush(0);
-      expect(elm.find('div.item').length).toBe(1);
+      expect(elm.find('div.carousel-item').length).toBe(1);
       testSlideActive(0);
     });
 
@@ -317,7 +317,7 @@ describe('carousel', function() {
         {content:'new3', index: 6}
       ];
       scope.$apply();
-      var contents = elm.find('div.item [ng-transclude]');
+      var contents = elm.find('div.carousel-item [ng-transclude]');
       expect(contents.length).toBe(3);
       expect(contents.eq(0).text()).toBe('new1');
       expect(contents.eq(1).text()).toBe('new2');
@@ -439,7 +439,7 @@ describe('carousel', function() {
       scope.slides[1].id = 2;
       scope.slides[2].id = 1;
       scope.$apply();
-      var contents = elm.find('div.item [ng-transclude]');
+      var contents = elm.find('div.carousel-item [ng-transclude]');
       expect(contents.length).toBe(3);
       expect(contents.eq(0).text()).toBe('three');
       expect(contents.eq(1).text()).toBe('two');
@@ -465,7 +465,7 @@ describe('carousel', function() {
       scope.slides[2].id = 4;
       scope.slides.push({content:'four', id: 5});
       scope.$apply();
-      var contents = elm.find('div.item [ng-transclude]');
+      var contents = elm.find('div.carousel-item [ng-transclude]');
       expect(contents.length).toBe(4);
       expect(contents.eq(0).text()).toBe('two');
       expect(contents.eq(1).text()).toBe('one');
@@ -477,7 +477,7 @@ describe('carousel', function() {
       testSlideActive(1);
       scope.slides.splice(1, 1);
       scope.$apply();
-      var contents = elm.find('div.item [ng-transclude]');
+      var contents = elm.find('div.carousel-item [ng-transclude]');
       expect(contents.length).toBe(2);
       expect(contents.eq(0).text()).toBe('three');
       expect(contents.eq(1).text()).toBe('one');

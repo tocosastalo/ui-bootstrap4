@@ -195,8 +195,8 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
 
   scope.focusDropdownEntry = function(keyCode) {
     var elems = self.dropdownMenu ? //If append to body is used.
-      angular.element(self.dropdownMenu).find('a') :
-      $element.find('div').eq(0).find('a');
+      angular.element(self.dropdownMenu).find('a.dropdown-item') :
+      $element.find('div').eq(0).find('a.dropdown-item');
 
     switch (keyCode) {
       case 40: {
@@ -219,6 +219,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
         break;
       }
     }
+
     elems[self.selectedOption].focus();
   };
 
