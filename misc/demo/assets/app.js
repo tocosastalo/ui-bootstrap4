@@ -55,6 +55,24 @@ function MainCtrl($scope, $http, $document, $uibModal, orderByFilter) {
   $http.get('/ui-bootstrap4/versions-mapping.json')
     .then(function(result) {
       $scope.oldDocs = result.data;
+    })
+    .catch(function(response)
+    {
+      if(response.status === 404)
+      {
+        $http.get('/versions-mapping.json')
+          .then(function(result) {
+            $scope.oldDocs = result.data;
+          })
+          .catch(function(response)
+          {
+            console.log('failed to get versions mapping:', response);
+          });
+      }
+      else
+      {
+        console.log('failed to get versions mapping:', response);
+      }
     });
 
   $scope.showBuildModal = function() {

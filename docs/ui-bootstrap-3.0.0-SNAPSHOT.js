@@ -2,7 +2,7 @@
  * ui-bootstrap4
  * http://morgul.github.io/ui-bootstrap4/
 
- * Version: 3.0.0-SNAPSHOT - 2017-09-24
+ * Version: 3.0.0-SNAPSHOT - 2017-12-09
  * License: MIT
  */angular.module("ui.bootstrap", ["ui.bootstrap.collapse","ui.bootstrap.tabindex","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.dateparser","ui.bootstrap.isClass","ui.bootstrap.datepicker","ui.bootstrap.position","ui.bootstrap.datepickerPopup","ui.bootstrap.debounce","ui.bootstrap.multiMap","ui.bootstrap.dropdown","ui.bootstrap.stackedMap","ui.bootstrap.modal","ui.bootstrap.paging","ui.bootstrap.pager","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker","ui.bootstrap.typeahead"]);
 angular.module('ui.bootstrap.collapse', [])
@@ -720,7 +720,7 @@ angular.module('ui.bootstrap.carousel', [])
       index: '=?'
     },
     link: function (scope, element, attrs, carouselCtrl) {
-      element.addClass('item');
+      element.addClass('carousel-item');
       carouselCtrl.addSlide(scope, element);
       //when the scope is destroyed then remove the slide from the current slides array
       scope.$on('$destroy', function() {
@@ -734,9 +734,10 @@ angular.module('ui.bootstrap.carousel', [])
   };
 }])
 
-.animation('.item', ['$animateCss',
+.animation('.carousel-item', ['$animateCss',
 function($animateCss) {
   var SLIDE_DIRECTION = 'uib-slideDirection';
+  var classPrefix = 'carousel-item-';
 
   function removeClass(element, className, callback) {
     element.removeClass(className);
@@ -750,10 +751,9 @@ function($animateCss) {
       if (className === 'active') {
         var stopped = false;
         var direction = element.data(SLIDE_DIRECTION);
-        var directionClass = direction === 'next' ? 'left' : 'right';
-        var removeClassFn = removeClass.bind(this, element,
-          directionClass + ' ' + direction, done);
-        element.addClass(direction);
+        var directionClass = direction === 'next' ? classPrefix + 'left' : classPrefix + 'right';
+        var removeClassFn = removeClass.bind(this, element, [directionClass, classPrefix + direction].join(' '), done);
+        element.addClass(classPrefix + direction);
 
         $animateCss(element, {addClass: directionClass})
           .start()
@@ -769,7 +769,7 @@ function($animateCss) {
       if (className === 'active') {
         var stopped = false;
         var direction = element.data(SLIDE_DIRECTION);
-        var directionClass = direction === 'next' ? 'left' : 'right';
+        var directionClass = direction === 'next' ? classPrefix + 'left' : classPrefix + 'right';
         var removeClassFn = removeClass.bind(this, element, directionClass, done);
 
         $animateCss(element, {addClass: directionClass})

@@ -14,11 +14,11 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-touch.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
-    <script src="ui-bootstrap-tpls-3.0.0-beta.3.min.js"></script>
+    <script src="ui-bootstrap-tpls-3.0.0-SNAPSHOT.min.js"></script>
     <script src="assets/plunker.js"></script>
     <script src="assets/app.js"></script>
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/rainbow.css"/>
     <link rel="stylesheet" href="assets/demo.css"/>
     <link rel="stylesheet" href="svg-icon.css"/>
@@ -69,17 +69,24 @@
         </p>
         <div class="container">
             <p>
-                <a class="btn btn-outline-inverse btn-lg" href="https://github.com/angular-ui/bootstrap"><i class="icon-github"></i>Code on Github</a>
+                <a class="btn btn-outline-inverse btn-lg" href="https://github.com/Morgul/ui-bootstrap4">
+                    <i class="icon-github"></i>
+                    Code on Github
+                </a>
                 <button type="button" class="btn btn-outline-inverse btn-lg" ng-click="showDownloadModal()">
 
                     <i class="fa-svg-icon">
-                        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1344 1344q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h465l135 136q58 56 136 56t136-56l136-136h464q40 0 68 28t28 68zm-325-569q17 41-14 70l-448 448q-18 19-45 19t-45-19l-448-448q-31-29-14-70 17-39 59-39h256v-448q0-26 19-45t45-19h256q26 0 45 19t19 45v448h256q42 0 59 39z"/></svg>
+                        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1344 1344q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h465l135 136q58 56 136 56t136-56l136-136h464q40 0 68 28t28 68zm-325-569q17 41-14 70l-448 448q-18 19-45 19t-45-19l-448-448q-31-29-14-70 17-39 59-39h256v-448q0-26 19-45t45-19h256q26 0 45 19t19 45v448h256q42 0 59 39z"/>
+                        </svg>
                     </i>
-                    Download <small>(3.0.0-beta.3)</small>
+                    Download <small>(3.0.0-SNAPSHOT)</small>
                 </button>
                 <button type="button" class="btn btn-outline-inverse btn-lg" ng-click="showBuildModal()">
                     <i class="fa-svg-icon">
-                        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M448 1472q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm644-420l-682 682q-37 37-90 37-52 0-91-37l-106-108q-38-36-38-90 0-53 38-91l681-681q39 98 114.5 173.5t173.5 114.5zm634-435q0 39-23 106-47 134-164.5 217.5t-258.5 83.5q-185 0-316.5-131.5t-131.5-316.5 131.5-316.5 316.5-131.5q58 0 121.5 16.5t107.5 46.5q16 11 16 28t-16 28l-293 169v224l193 107q5-3 79-48.5t135.5-81 70.5-35.5q15 0 23.5 10t8.5 25z"/></svg>
+                        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M448 1472q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm644-420l-682 682q-37 37-90 37-52 0-91-37l-106-108q-38-36-38-90 0-53 38-91l681-681q39 98 114.5 173.5t173.5 114.5zm634-435q0 39-23 106-47 134-164.5 217.5t-258.5 83.5q-185 0-316.5-131.5t-131.5-316.5 131.5-316.5 316.5-131.5q58 0 121.5 16.5t107.5 46.5q16 11 16 28t-16 28l-293 169v224l193 107q5-3 79-48.5t135.5-81 70.5-35.5q15 0 23.5 10t8.5 25z"/>
+                        </svg>
                     </i>
                     Create a Build
                 </button>
@@ -146,8 +153,8 @@
                             0.12.0 is the last version that supports AngularJS 1.2.x.</li>
                         <li><a href="http://angularjs.org" target="_blank">Angular-animate</a> (the version should match with your angular's, tested with 1.6.1) if you plan in using animations, you need to load angular-animate as well.</li>
                         <li><a href="http://angularjs.org" target="_blank">Angular-touch</a> (the version should match with your angular's, tested with 1.6.1) if you plan in using swipe actions, you need to load angular-touch as well.</li>
-                        <li><a href="http://getbootstrap.com" target="_blank">Bootstrap CSS</a> (tested with version 4.0.0-beta).
-                            This version of the library (3.0.0-beta.3) works only with Bootstrap CSS in version 4.x.
+                        <li><a href="http://getbootstrap.com" target="_blank">Bootstrap CSS</a> (tested with version 4.0.0-beta.2).
+                            This version of the library (3.0.0-SNAPSHOT) works only with Bootstrap CSS in version 4.x.
                             2.5.0 is the last version of this library that supports Bootstrap CSS in version 3.x.x.
                             0.8.0 is the last version of this library that supports Bootstrap CSS in version 2.3.x.
                         </li>
@@ -330,7 +337,7 @@ Add the ability to override the template used on the component.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'accordion')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'accordion')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -509,7 +516,7 @@ Add the ability to override the template used in the component.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'alert')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'alert')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -669,7 +676,7 @@ Event used to toggle the buttons.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'buttons')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'buttons')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -871,7 +878,7 @@ Add the ability to override the template used on the component.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'carousel')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'carousel')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -1140,7 +1147,7 @@ An optional attribute that permit to collapse horizontally.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'collapse')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'collapse')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -1394,7 +1401,7 @@ Parses the long form of the era (<code>Anno Domini</code> or <code>Before Christ
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'dateparser')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'dateparser')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -1644,7 +1651,7 @@ Number of columns displayed in year selection.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'datepicker')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'datepicker')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -2005,7 +2012,7 @@ The format for displayed dates. This string can take string literals by surround
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'datepickerPopup')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'datepickerPopup')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -2500,7 +2507,7 @@ Class to apply when the dropdown is open.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'dropdown')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'dropdown')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -2931,7 +2938,7 @@ Also, the <code>$close</code> and <code>$dismiss</code> methods returns true if 
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'modal')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'modal')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -3326,7 +3333,7 @@ Total number of items in all pages.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'pager')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'pager')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -3505,7 +3512,7 @@ Total number of items in all pages.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'pagination')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'pagination')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -3766,7 +3773,7 @@ Provide a set of defaults for certain tooltip and popover attributes. Currently 
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'popover')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'popover')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -4260,7 +4267,7 @@ The placement for the element.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'position')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'position')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -4478,7 +4485,7 @@ Title to use as label (for accessibility).</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'progressbar')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'progressbar')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -4695,7 +4702,7 @@ A variable used in the template to specify the state for unselected icons.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'rating')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'rating')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -4933,7 +4940,7 @@ A URL representing the location of a template to use for the tab heading.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'tabs')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'tabs')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -5222,7 +5229,7 @@ Add the ability to override the template used on the component.</p>
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'timepicker')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'timepicker')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -5539,7 +5546,7 @@ Provide a set of defaults for certain tooltip and popover attributes. Currently 
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'tooltip')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'tooltip')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -5908,7 +5915,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
                         <div class="row code">
                             <div class="col-md-12" ng-controller="PlunkerCtrl">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta', '3.0.0-beta.3', 'typeahead')">
+                                    <button type="button" class="btn btn-info plunk-btn" ng-click="edit('1.6.1', '4.0.0-beta.2', '3.0.0-SNAPSHOT', 'typeahead')">
                                         <i class="fa-svg-icon">
                                             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M888 1184l116-116-152-152-116 116v56h96v96h56zm440-720q-16-16-33 1l-350 350q-17 17-1 33t33-1l350-350q17-17 1-33zm80 594v190q0 119-84.5 203.5t-203.5 84.5h-832q-119 0-203.5-84.5t-84.5-203.5v-832q0-119 84.5-203.5t203.5-84.5h832q63 0 117 25 15 7 18 23 3 17-9 29l-49 49q-14 14-32 8-23-6-45-6h-832q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113v-126q0-13 9-22l64-64q15-15 35-7t20 29zm-96-738l288 288-672 672h-288v-288zm444 132l-92 92-288-288 92-92q28-28 68-28t68 28l152 152q28 28 28 68t-28 68z"/></svg>
                                         </i>
@@ -6110,42 +6117,44 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
     <div class="modal-header"><h4 class="modal-title">Download Angular UI Bootstrap</h4></div>
     <div class="modal-body">
         <form class="form-horizontal">
-          <div class="form-group">
-            <label class="col-sm-3 control-label"><strong>Build</strong></label>
+          <div class="form-group row">
+            <label class="col-sm-3 control-label text-right"><strong>Build</strong></label>
             <div class="col-sm-9">
-              <span class="btn-group">
-                <button type="button" class="btn btn-default" ng-model="options.minified" uib-btn-radio="true">Minified</button>
-                <button type="button" class="btn btn-default" ng-model="options.minified" uib-btn-radio="false">Uncompressed</button>
+              <span class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-secondary" ng-model="options.minified" uib-btn-radio="true">Minified</button>
+                <button type="button" class="btn btn-secondary" ng-model="options.minified" uib-btn-radio="false">Uncompressed</button>
               </span>
-              <small class="help-block">Use <b>Minified</b> version in your deployed application. <b>Uncompressed</b> source code is useful only for debugging and development purpose.</small>
+              <small class="form-text">Use <b>Minified</b> version in your deployed application. <b>Uncompressed</b> source code is useful only for debugging and development purpose.</small>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label"><strong>Include Templates</strong></label>
+          <div class="form-group row">
+            <label class="col-sm-3 control-label text-right"><strong>Include Templates</strong></label>
             <div class="col-sm-9">
-              <span class="btn-group">
-                <button type="button" class="btn btn-default" ng-model="options.tpls" uib-btn-radio="true">Yes</button>
-                <button type="button" class="btn btn-default" ng-model="options.tpls" uib-btn-radio="false">No</button>
+              <span class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-secondary" ng-model="options.tpls" uib-btn-radio="true">Yes</button>
+                <button type="button" class="btn btn-secondary" ng-model="options.tpls" uib-btn-radio="false">No</button>
               </span>
-              <small class="help-block">Whether you want to include the <i>default templates</i>, bundled with most of the directives. These templates are based on Bootstrap's markup and CSS.</small>
+              <small class="form-text">Whether you want to include the <i>default templates</i>, bundled with most of the directives. These templates are based on Bootstrap's markup and CSS.</small>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label"><strong>npm</strong></label>
+          <div class="form-group row">
+            <label class="col-sm-3 control-label text-right"><strong>npm</strong></label>
             <div class="col-sm-9">
               <pre style="margin-bottom:0;">npm install ui-bootstrap4</pre>
-              <small class="help-block"><a href="https://www.npmjs.com/" target="_blank">npm</a> is a package manager for the web.</small>
+              <small class="form-text"><a href="https://www.npmjs.com/" target="_blank">npm</a> is a package manager for the web.</small>
             </div>
           </div>
         </form>
     </div>
     <div class="modal-footer">
-        <a class="btn btn-default" ng-click="cancel()">Close</a>
-        <a class="btn btn-primary" ng-href="{{download('3.0.0-beta.3')}}" download>
+        <button class="btn btn-secondary" ng-click="cancel()">Close</button>
+        <a class="btn btn-primary" ng-href="{{download('3.0.0-SNAPSHOT')}}" download>
             <i class="fa-svg-icon">
-                <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1344 1344q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h465l135 136q58 56 136 56t136-56l136-136h464q40 0 68 28t28 68zm-325-569q17 41-14 70l-448 448q-18 19-45 19t-45-19l-448-448q-31-29-14-70 17-39 59-39h256v-448q0-26 19-45t45-19h256q26 0 45 19t19 45v448h256q42 0 59 39z"/></svg>
+                <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1344 1344q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h465l135 136q58 56 136 56t136-56l136-136h464q40 0 68 28t28 68zm-325-569q17 41-14 70l-448 448q-18 19-45 19t-45-19l-448-448q-31-29-14-70 17-39 59-39h256v-448q0-26 19-45t45-19h256q26 0 45 19t19 45v448h256q42 0 59 39z"/>
+                </svg>
             </i>
-            Download 3.0.0-beta.3
+            Download 3.0.0-SNAPSHOT
         </a>
     </div>
 </script>
@@ -6171,7 +6180,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.collapse}"
                ng-model="module.collapse"
@@ -6182,7 +6191,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.tabindex}"
                ng-model="module.tabindex"
@@ -6193,7 +6202,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.accordion}"
                ng-model="module.accordion"
@@ -6208,7 +6217,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.alert}"
                ng-model="module.alert"
@@ -6219,7 +6228,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.buttons}"
                ng-model="module.buttons"
@@ -6230,7 +6239,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.carousel}"
                ng-model="module.carousel"
@@ -6245,7 +6254,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.dateparser}"
                ng-model="module.dateparser"
@@ -6256,7 +6265,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.isClass}"
                ng-model="module.isClass"
@@ -6267,7 +6276,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.datepicker}"
                ng-model="module.datepicker"
@@ -6282,7 +6291,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.position}"
                ng-model="module.position"
@@ -6293,7 +6302,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.datepickerPopup}"
                ng-model="module.datepickerPopup"
@@ -6304,7 +6313,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.debounce}"
                ng-model="module.debounce"
@@ -6319,7 +6328,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.multiMap}"
                ng-model="module.multiMap"
@@ -6330,7 +6339,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.dropdown}"
                ng-model="module.dropdown"
@@ -6341,7 +6350,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.stackedMap}"
                ng-model="module.stackedMap"
@@ -6356,7 +6365,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.modal}"
                ng-model="module.modal"
@@ -6367,7 +6376,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.paging}"
                ng-model="module.paging"
@@ -6378,7 +6387,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.pager}"
                ng-model="module.pager"
@@ -6393,7 +6402,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.pagination}"
                ng-model="module.pagination"
@@ -6404,7 +6413,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.tooltip}"
                ng-model="module.tooltip"
@@ -6415,7 +6424,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.popover}"
                ng-model="module.popover"
@@ -6430,7 +6439,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.progressbar}"
                ng-model="module.progressbar"
@@ -6441,7 +6450,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.rating}"
                ng-model="module.rating"
@@ -6452,7 +6461,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.tabs}"
                ng-model="module.tabs"
@@ -6467,7 +6476,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
                 <div class="btn-group" style="width: 100%;">
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.timepicker}"
                ng-model="module.timepicker"
@@ -6478,7 +6487,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
               
             
               
-              <button type="button" class="btn btn-default"
+              <button type="button" class="btn btn-secondary"
                style="width: 33%; border-radius: 0;"
                ng-class="{'btn-primary': module.typeahead}"
                ng-model="module.typeahead"
@@ -6491,15 +6500,17 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
         </div>
     </div>
     <div class="modal-footer">
-        <a class="btn btn-default" ng-click="cancel()">Close</a>
-        <a class="btn btn-primary" ng-hide="isOldBrowser()"
+        <button class="btn btn-secondary" ng-click="cancel()">Close</button>
+        <button class="btn btn-primary" ng-hide="isOldBrowser()"
             ng-disabled="isOldBrowser() !== false && !selectedModules.length"
-            ng-click="selectedModules.length && build(selectedModules, '3.0.0-beta.3')">
+            ng-click="selectedModules.length && build(selectedModules, '3.0.0-SNAPSHOT')">
             <i class="fa-svg-icon">
-                <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1344 1344q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h465l135 136q58 56 136 56t136-56l136-136h464q40 0 68 28t28 68zm-325-569q17 41-14 70l-448 448q-18 19-45 19t-45-19l-448-448q-31-29-14-70 17-39 59-39h256v-448q0-26 19-45t45-19h256q26 0 45 19t19 45v448h256q42 0 59 39z"/></svg>
+                <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1344 1344q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h465l135 136q58 56 136 56t136-56l136-136h464q40 0 68 28t28 68zm-325-569q17 41-14 70l-448 448q-18 19-45 19t-45-19l-448-448q-31-29-14-70 17-39 59-39h256v-448q0-26 19-45t45-19h256q26 0 45 19t19 45v448h256q42 0 59 39z"/>
+                </svg>
             </i>
             Download {{selectedModules.length}} Modules
-        </a>
+        </button>
     </div>
 </script>
 
