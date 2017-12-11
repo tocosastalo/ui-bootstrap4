@@ -626,8 +626,6 @@ angular.module('ui.bootstrap.position', [])
 
         arrowCss[placement[1]] = borderRadius;
 
-        console.log('calc CSS:', arrowCss);
-
         angular.element(arrowElem).css(arrowCss);
       }
     };
