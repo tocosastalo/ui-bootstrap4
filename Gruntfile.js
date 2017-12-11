@@ -541,9 +541,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('release', function(version) {
         // Step 1, we change package.json
-        const pkg = grunt.config('pkg');
-        pkg.version = version;
-        grunt.file.write('./package.json', JSON.stringify(pkg, null, 2));
+        grunt.config.set('pkg.version', version);
+        grunt.file.write('./package.json', JSON.stringify(grunt.config('pkg'), null, 2));
 
         // Step 2, we queue up additional tasks
         grunt.task.run([
