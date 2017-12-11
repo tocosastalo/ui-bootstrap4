@@ -186,7 +186,6 @@ module.exports = function(grunt) {
             //We use %version% and evaluate it at run-time, because <%= pkg.version %>
             //is only evaluated once
             'release-prepare': [
-                'cp ./dist/ui-bootstrap* docs',
                 'git add docs',
             ],
             'release-complete': [
@@ -548,6 +547,7 @@ module.exports = function(grunt) {
         grunt.task.run([
             'conventionalChangelog',
             'build',
+            'copy',
             'shell:release-prepare',
             'shell:release-complete',
             'shell:publish'

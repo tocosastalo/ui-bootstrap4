@@ -197,19 +197,11 @@ We are always looking for the quality contributions! Please check the [CONTRIBUT
 
 ## Building a Release
 
-To build a release, change `package.json` to have the right version number, do `grunt build`, delete everything except 
-for:
+I've currently hacked out a solution, but the whole thing's very messy. For now, to build a release, just do:
 
-* `ui-bootstrap-[VERSION].js`
-* `ui-bootstrap-[VERSION]-csp.css`
-* `ui-bootstrap-tpls-[VERSION].js`
+```
+$ grunt release:3.0.0
+```
 
-These files get renamed to remove the `[VERSION]` piece:
-
-* `ui-bootstrap-[VERSION].js` => `ui-bootstrap.js`
-* `ui-bootstrap-[VERSION]-csp.css` => `ui-bootstrap-csp.css`
-* `ui-bootstrap-tpls-[VERSION].js` => `ui-bootstrap-tpls.js`
-
-Now run `npm publish`.
-
-_TODO: Something about updating docs?_
+(Obviously, replace `3.0.0` with the version you're releasing.) That should build a correct release, and update the 
+docs, and everything.
