@@ -186,7 +186,7 @@ module.exports = function(grunt) {
             //We use %version% and evaluate it at run-time, because <%= pkg.version %>
             //is only evaluated once
             'release-prepare': [
-                'git add docs',
+                'git add docs'
             ],
             'release-complete': [
                 'git commit -a -m "chore(release): v%version%"',
@@ -551,7 +551,7 @@ module.exports = function(grunt) {
             'shell:release-prepare',
             'shell:release-complete',
             'shell:publish'
-        ])
+        ]);
     });
 
     //------------------------------------------------------------------------------------------------------------------
