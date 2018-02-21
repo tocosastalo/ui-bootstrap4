@@ -315,7 +315,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
       self.dropdownMenu.css(css);
     }
       
-    // find open container by uib-dropdown-directive
+    // find openContainer by uib-dropdown-menu directive
     var openContainer = appendTo ? appendTo : $element.find('[uib-dropdown-menu]');
     var dropdownOpenClass = appendTo ? appendToOpenClass : openClass;
     var hasOpenClass = openContainer.hasClass(dropdownOpenClass);
