@@ -314,8 +314,9 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
 
       self.dropdownMenu.css(css);
     }
-
-    var openContainer = appendTo ? appendTo : $element.find('div');
+      
+    // find openContainer by uib-dropdown-menu directive
+    var openContainer = appendTo ? appendTo : $element.find('[uib-dropdown-menu]');
     var dropdownOpenClass = appendTo ? appendToOpenClass : openClass;
     var hasOpenClass = openContainer.hasClass(dropdownOpenClass);
     var isOnlyOpen = uibDropdownService.isOnlyOpen($scope, appendTo);
@@ -327,6 +328,10 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
       } else {
         toggleClass = isOpen ? 'addClass' : 'removeClass';
       }
+        
+      // original Bootstrap 4 dropdown sets openClass on both dropdownMenu and element
+	  $animate[toggleClass]($element, dropdownOpenClass);
+      
       $animate[toggleClass](openContainer, dropdownOpenClass).then(function() {
         if (angular.isDefined(isOpen) && isOpen !== wasOpen) {
           toggleInvoker($scope, { open: !!isOpen });
