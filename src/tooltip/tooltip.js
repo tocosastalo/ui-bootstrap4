@@ -164,8 +164,8 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
                   var placementClasses = $position.parsePlacement(ttScope.placement);
                   var placement = placementClasses[1] === 'center' ? placementClasses[0] : placementClasses[0] + '-' + placementClasses[1];
 				  
-              // need to add classes prior to placement to allow correct tooltip width calculations
-              if (!tooltip.hasClass(placementClasses[0])) {
+                  // need to add classes prior to placement to allow correct tooltip width calculations
+                  if (!tooltip.hasClass(placementClasses[0])) {
                     tooltip.removeClass(lastPlacement.split('-')[0]);
                     tooltip.addClass(placementClasses[0]);
                   }
