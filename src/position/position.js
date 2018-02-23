@@ -1,11 +1,11 @@
 angular.module('ui.bootstrap.position', [])
 
-/**
- * A set of utility methods for working with the DOM.
- * It is meant to be used where we need to absolute-position elements in
- * relation to another element (this is the case for tooltips, popovers,
- * typeahead suggestions etc.).
- */
+  /**
+   * A set of utility methods for working with the DOM.
+   * It is meant to be used where we need to absolute-position elements in
+   * relation to another element (this is the case for tooltips, popovers,
+   * typeahead suggestions etc.).
+   */
   .factory('$uibPosition', ['$document', '$window', function($document, $window) {
     /**
      * Used by scrollbarWidth() function to cache scrollbar's width.
@@ -140,7 +140,7 @@ angular.module('ui.bootstrap.position', [])
           heightOverflow: scrollParent.scrollHeight > scrollParent.clientHeight,
           bottom: paddingBottom + scrollbarWidth,
           originalBottom: paddingBottom
-         };
+        };
       },
 
       /**
@@ -263,16 +263,27 @@ angular.module('ui.bootstrap.position', [])
        *     <li>**right**: distance to bottom edge of viewport</li>
        *   </ul>
        */
-      offset: function(elem) {
+      offset: function(elem, includeMargins) {
         elem = this.getRawNode(elem);
 
         var elemBCR = elem.getBoundingClientRect();
-        return {
+        var offset = {
           width: Math.round(angular.isNumber(elemBCR.width) ? elemBCR.width : elem.offsetWidth),
           height: Math.round(angular.isNumber(elemBCR.height) ? elemBCR.height : elem.offsetHeight),
           top: Math.round(elemBCR.top + ($window.pageYOffset || $document[0].documentElement.scrollTop)),
           left: Math.round(elemBCR.left + ($window.pageXOffset || $document[0].documentElement.scrollLeft))
         };
+
+        if (includeMargins) {
+          var styles = window.getComputedStyle(elem);
+          var verticalMargin = this.parseStyle(styles.marginTop) + this.parseStyle(styles.marginBottom);
+          var horisontalMargin = this.parseStyle(styles.marginLeft) + this.parseStyle(styles.marginRight);
+
+          offset.height += verticalMargin;
+          offset.width += horisontalMargin;
+        }
+
+        return offset;
       },
 
       /**
@@ -423,6 +434,8 @@ angular.module('ui.bootstrap.position', [])
        *   </ul>
        * @param {boolean=} [appendToBody=false] - Should the top and left values returned
        *   be calculated from the body element, default is false.
+       * @param {boolean=} [includeMargins=false] - Should margins count into targetElem width
+       *    in position claculation
        *
        * @returns {object} An object with the following properties:
        *   <ul>
@@ -431,13 +444,22 @@ angular.module('ui.bootstrap.position', [])
        *     <li>**placement**: The resolved placement.</li>
        *   </ul>
        */
-      positionElements: function(hostElem, targetElem, placement, appendToBody) {
+      positionElements: function(hostElem, targetElem, placement, appendToBody, includeMargins) {
         hostElem = this.getRawNode(hostElem);
         targetElem = this.getRawNode(targetElem);
 
         // need to read from prop to support tests.
         var targetWidth = angular.isDefined(targetElem.offsetWidth) ? targetElem.offsetWidth : targetElem.prop('offsetWidth');
         var targetHeight = angular.isDefined(targetElem.offsetHeight) ? targetElem.offsetHeight : targetElem.prop('offsetHeight');
+
+        if (includeMargins) {
+          var styles = window.getComputedStyle(targetElem);
+          var verticalMargin = this.parseStyle(styles.marginTop) + this.parseStyle(styles.marginBottom);
+          var horisontalMargin = this.parseStyle(styles.marginLeft) + this.parseStyle(styles.marginRight);
+
+          targetHeight += verticalMargin;
+          targetWidth += horisontalMargin;
+        }
 
         placement = this.parsePlacement(placement);
 
@@ -454,16 +476,16 @@ angular.module('ui.bootstrap.position', [])
           };
 
           placement[0] = placement[0] === 'top' && adjustedSize.height > viewportOffset.top && adjustedSize.height <= viewportOffset.bottom ? 'bottom' :
-                         placement[0] === 'bottom' && adjustedSize.height > viewportOffset.bottom && adjustedSize.height <= viewportOffset.top ? 'top' :
-                         placement[0] === 'left' && adjustedSize.width > viewportOffset.left && adjustedSize.width <= viewportOffset.right ? 'right' :
-                         placement[0] === 'right' && adjustedSize.width > viewportOffset.right && adjustedSize.width <= viewportOffset.left ? 'left' :
-                         placement[0];
+            placement[0] === 'bottom' && adjustedSize.height > viewportOffset.bottom && adjustedSize.height <= viewportOffset.top ? 'top' :
+              placement[0] === 'left' && adjustedSize.width > viewportOffset.left && adjustedSize.width <= viewportOffset.right ? 'right' :
+                placement[0] === 'right' && adjustedSize.width > viewportOffset.right && adjustedSize.width <= viewportOffset.left ? 'left' :
+                  placement[0];
 
           placement[1] = placement[1] === 'top' && adjustedSize.height - hostElemPos.height > viewportOffset.bottom && adjustedSize.height - hostElemPos.height <= viewportOffset.top ? 'bottom' :
-                         placement[1] === 'bottom' && adjustedSize.height - hostElemPos.height > viewportOffset.top && adjustedSize.height - hostElemPos.height <= viewportOffset.bottom ? 'top' :
-                         placement[1] === 'left' && adjustedSize.width - hostElemPos.width > viewportOffset.right && adjustedSize.width - hostElemPos.width <= viewportOffset.left ? 'right' :
-                         placement[1] === 'right' && adjustedSize.width - hostElemPos.width > viewportOffset.left && adjustedSize.width - hostElemPos.width <= viewportOffset.right ? 'left' :
-                         placement[1];
+            placement[1] === 'bottom' && adjustedSize.height - hostElemPos.height > viewportOffset.top && adjustedSize.height - hostElemPos.height <= viewportOffset.bottom ? 'top' :
+              placement[1] === 'left' && adjustedSize.width - hostElemPos.width > viewportOffset.right && adjustedSize.width - hostElemPos.width <= viewportOffset.left ? 'right' :
+                placement[1] === 'right' && adjustedSize.width - hostElemPos.width > viewportOffset.left && adjustedSize.width - hostElemPos.width <= viewportOffset.right ? 'left' :
+                  placement[1];
 
           if (placement[1] === 'center') {
             if (PLACEMENT_REGEX.vertical.test(placement[0])) {
@@ -583,7 +605,7 @@ angular.module('ui.bootstrap.position', [])
 
         placement = this.parsePlacement(placement);
         if (placement[1] === 'center') {
-          var arrowElemOffset = this.offset(arrowElem);
+          var arrowElemOffset = this.offset(arrowElem, true);
           if (PLACEMENT_REGEX.vertical.test(placement[0])) {
             var aHW = arrowElemOffset.width / 2;
             var eHW = this.offset(elem).width / 2;
@@ -609,19 +631,21 @@ angular.module('ui.bootstrap.position', [])
         borderRadiusProp += '-radius';
         var borderRadius = $window.getComputedStyle(isTooltip ? innerElem : elem)[borderRadiusProp];
 
-        switch (placement[0]) {
-          case 'top':
-            arrowCss.bottom = isTooltip ? '0' : '-' + borderWidth;
-            break;
-          case 'bottom':
-            arrowCss.top = isTooltip ? '0' : '-' + borderWidth;
-            break;
-          case 'left':
-            arrowCss.right = isTooltip ? '0' : '-' + borderWidth;
-            break;
-          case 'right':
-            arrowCss.left = isTooltip ? '0' : '-' + borderWidth;
-            break;
+        if (isTooltip) {
+          switch (placement[0]) {
+            case 'top':
+              arrowCss.bottom = '0';
+              break;
+            case 'bottom':
+              arrowCss.top = '0';
+              break;
+            case 'left':
+              arrowCss.right = '0';
+              break;
+            case 'right':
+              arrowCss.left = '0';
+              break;
+          }
         }
 
         arrowCss[placement[1]] = borderRadius;

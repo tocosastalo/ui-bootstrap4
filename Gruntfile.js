@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         ngversion: '1.6.1',
-        bsversion: '4.0.0-beta.2',
+        bsversion: '4.0.0',
         modules: [],//to be filled in by build task
         pkg: grunt.file.readJSON('package.json'),
         dist: 'dist',

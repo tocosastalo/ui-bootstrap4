@@ -175,7 +175,8 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
                     tooltip.addClass(options.placementClassPrefix + placement);
                   }
                   
-                  var ttPosition = $position.positionElements(element, tooltip, ttScope.placement, appendToBody);
+                  // Take into account tooltup margins, since boostrap css draws tooltip arrow inside margins
+                  var ttPosition = $position.positionElements(element, tooltip, ttScope.placement, appendToBody, true);
                   var initialHeight = angular.isDefined(tooltip.offsetHeight) ? tooltip.offsetHeight : tooltip.prop('offsetHeight');
                   var elementPos = appendToBody ? $position.offset(element) : $position.position(element);
                   tooltip.css({ top: ttPosition.top + 'px', left: ttPosition.left + 'px' });
