@@ -29,6 +29,11 @@ It supports multiple (stacked) `<uib-bar>` into the same `<uib-progress>` elemen
 * `title`
   _(Default: `progressbar`)_ -
   Title to use as label (for accessibility).
+
+* `striped`
+  <small class="badge">$</small>
+  <small class="badge">C</small>
+  _(Default: `false`)_
   
 ### uib-progress settings
 
@@ -63,3 +68,8 @@ It supports multiple (stacked) `<uib-bar>` into the same `<uib-progress>` elemen
 * `title`
   _(Default: `progressbar`)_ -
   Title to use as label (for accessibility).
+
+* `striped`
+  <small class="badge">$</small>
+  <small class="badge">C</small>
+  _(Default: `false`)_

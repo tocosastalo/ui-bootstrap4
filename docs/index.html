@@ -4410,8 +4410,8 @@ The placement for the element.</p>
     <h3>Static</h3>
     <div class="row">
         <div class="col-sm-4"><uib-progressbar value="55"></uib-progressbar></div>
-        <div class="col-sm-4"><uib-progressbar class="progress-striped" value="22" type="warning">22%</uib-progressbar></div>
-        <div class="col-sm-4"><uib-progressbar class="progress-striped active" max="200" value="166" type="danger"><i>166 / 200</i></uib-progressbar></div>
+        <div class="col-sm-4"><uib-progressbar value="22" type="warning" striped="true">22%</uib-progressbar></div>
+        <div class="col-sm-4"><uib-progressbar class="active" max="200" value="166" type="danger" striped="true"><i>166 / 200</i></uib-progressbar></div>
     </div>
 
     <hr />
@@ -4422,7 +4422,7 @@ The placement for the element.</p>
     <uib-progressbar animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b></uib-progressbar>
 
     <small><em>Object (changes type based on value)</em></small>
-    <uib-progressbar class="progress-striped active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></uib-progressbar>
+    <uib-progressbar class="active" value="dynamic" type="{{type}}" striped="true">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></uib-progressbar>
     
     <hr />
     <h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
@@ -4461,6 +4461,11 @@ Whether bars use transitions to achieve the width change.</p>
 <em>(Default: <code>progressbar</code>)</em> -
 Title to use as label (for accessibility).</p>
 </li>
+<li><p><code>striped</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: <code>false</code>)</em></p>
+</li>
 </ul>
 <h3 id="uib-progress-settings">uib-progress settings</h3>
 <ul>
@@ -4497,6 +4502,11 @@ Bootstrap style type. Possible values are &#39;success&#39;, &#39;info&#39;, &#3
 <em>(Default: <code>progressbar</code>)</em> -
 Title to use as label (for accessibility).</p>
 </li>
+<li><p><code>striped</code>
+<small class="badge">$</small>
+<small class="badge">C</small>
+<em>(Default: <code>false</code>)</em></p>
+</li>
 </ul>
 
                             </div>
@@ -4520,8 +4530,8 @@ Title to use as label (for accessibility).</p>
     &lt;h3&gt;Static&lt;/h3&gt;
     &lt;div class=&quot;row&quot;&gt;
         &lt;div class=&quot;col-sm-4&quot;&gt;&lt;uib-progressbar value=&quot;55&quot;&gt;&lt;/uib-progressbar&gt;&lt;/div&gt;
-        &lt;div class=&quot;col-sm-4&quot;&gt;&lt;uib-progressbar class=&quot;progress-striped&quot; value=&quot;22&quot; type=&quot;warning&quot;&gt;22%&lt;/uib-progressbar&gt;&lt;/div&gt;
-        &lt;div class=&quot;col-sm-4&quot;&gt;&lt;uib-progressbar class=&quot;progress-striped active&quot; max=&quot;200&quot; value=&quot;166&quot; type=&quot;danger&quot;&gt;&lt;i&gt;166 / 200&lt;/i&gt;&lt;/uib-progressbar&gt;&lt;/div&gt;
+        &lt;div class=&quot;col-sm-4&quot;&gt;&lt;uib-progressbar value=&quot;22&quot; type=&quot;warning&quot; striped=&quot;true&quot;&gt;22%&lt;/uib-progressbar&gt;&lt;/div&gt;
+        &lt;div class=&quot;col-sm-4&quot;&gt;&lt;uib-progressbar class=&quot;active&quot; max=&quot;200&quot; value=&quot;166&quot; type=&quot;danger&quot; striped=&quot;true&quot;&gt;&lt;i&gt;166 / 200&lt;/i&gt;&lt;/uib-progressbar&gt;&lt;/div&gt;
     &lt;/div&gt;
 
     &lt;hr /&gt;
@@ -4532,7 +4542,7 @@ Title to use as label (for accessibility).</p>
     &lt;uib-progressbar animate=&quot;false&quot; value=&quot;dynamic&quot; type=&quot;success&quot;&gt;&lt;b&gt;{{dynamic}}%&lt;/b&gt;&lt;/uib-progressbar&gt;
 
     &lt;small&gt;&lt;em&gt;Object (changes type based on value)&lt;/em&gt;&lt;/small&gt;
-    &lt;uib-progressbar class=&quot;progress-striped active&quot; value=&quot;dynamic&quot; type=&quot;{{type}}&quot;&gt;{{type}} &lt;i ng-show=&quot;showWarning&quot;&gt;!!! Watch out !!!&lt;/i&gt;&lt;/uib-progressbar&gt;
+    &lt;uib-progressbar class=&quot;active&quot; value=&quot;dynamic&quot; type=&quot;{{type}}&quot; striped=&quot;true&quot;&gt;{{type}} &lt;i ng-show=&quot;showWarning&quot;&gt;!!! Watch out !!!&lt;/i&gt;&lt;/uib-progressbar&gt;
     
     &lt;hr /&gt;
     &lt;h3&gt;Stacked &lt;button type=&quot;button&quot; class=&quot;btn btn-sm btn-primary&quot; ng-click=&quot;randomStacked()&quot;&gt;Randomize&lt;/button&gt;&lt;/h3&gt;

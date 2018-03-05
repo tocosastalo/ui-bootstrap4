@@ -83,7 +83,8 @@ angular.module('ui.bootstrap.progressbar', [])
     require: '^uibProgress',
     scope: {
       value: '=',
-      type: '@'
+      type: '@',
+      striped: '=?'
     },
     templateUrl: 'uib/template/progressbar/bar.html',
     link: function(scope, element, attrs, progressCtrl) {
@@ -100,7 +101,8 @@ angular.module('ui.bootstrap.progressbar', [])
     scope: {
       value: '=',
       maxParam: '=?max',
-      type: '@'
+      type: '@',
+      striped: '=?'
     },
     templateUrl: 'uib/template/progressbar/progressbar.html',
     link: function(scope, element, attrs, progressCtrl) {
