@@ -330,7 +330,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
       }
         
       // original Bootstrap 4 dropdown sets openClass on both dropdownMenu and element
-	  $animate[toggleClass]($element, dropdownOpenClass);
+      $animate[toggleClass]($element, dropdownOpenClass);
       
       $animate[toggleClass](openContainer, dropdownOpenClass).then(function() {
         if (angular.isDefined(isOpen) && isOpen !== wasOpen) {
