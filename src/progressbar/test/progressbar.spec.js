@@ -266,7 +266,6 @@ describe('progressbar directive', function() {
       $rootScope.$digest();
 
       expect(element.children().length).toBe(1);
-
       expect(getBar(0)).toHaveClass(BG_PREFIX + '-info');
       expect(getBar(0)).not.toHaveClass(BG_PREFIX + '-success');
       expect(getBar(0)).not.toHaveClass(BG_PREFIX + '-warning');
