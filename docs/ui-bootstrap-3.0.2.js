@@ -2,7 +2,7 @@
  * ui-bootstrap4
  * http://morgul.github.io/ui-bootstrap4/
 
- * Version: 3.0.2 - 2018-02-12
+ * Version: 3.0.2 - 2018-03-12
  * License: MIT
  */angular.module("ui.bootstrap", ["ui.bootstrap.collapse","ui.bootstrap.tabindex","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.dateparser","ui.bootstrap.isClass","ui.bootstrap.datepicker","ui.bootstrap.position","ui.bootstrap.datepickerPopup","ui.bootstrap.debounce","ui.bootstrap.multiMap","ui.bootstrap.dropdown","ui.bootstrap.stackedMap","ui.bootstrap.modal","ui.bootstrap.paging","ui.bootstrap.pager","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker","ui.bootstrap.typeahead"]);
 angular.module('ui.bootstrap.collapse', [])
@@ -2110,12 +2110,12 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
 
 angular.module('ui.bootstrap.position', [])
 
-/**
- * A set of utility methods for working with the DOM.
- * It is meant to be used where we need to absolute-position elements in
- * relation to another element (this is the case for tooltips, popovers,
- * typeahead suggestions etc.).
- */
+  /**
+   * A set of utility methods for working with the DOM.
+   * It is meant to be used where we need to absolute-position elements in
+   * relation to another element (this is the case for tooltips, popovers,
+   * typeahead suggestions etc.).
+   */
   .factory('$uibPosition', ['$document', '$window', function($document, $window) {
     /**
      * Used by scrollbarWidth() function to cache scrollbar's width.
@@ -2250,7 +2250,7 @@ angular.module('ui.bootstrap.position', [])
           heightOverflow: scrollParent.scrollHeight > scrollParent.clientHeight,
           bottom: paddingBottom + scrollbarWidth,
           originalBottom: paddingBottom
-         };
+        };
       },
 
       /**
@@ -2373,16 +2373,27 @@ angular.module('ui.bootstrap.position', [])
        *     <li>**right**: distance to bottom edge of viewport</li>
        *   </ul>
        */
-      offset: function(elem) {
+      offset: function(elem, includeMargins) {
         elem = this.getRawNode(elem);
 
         var elemBCR = elem.getBoundingClientRect();
-        return {
+        var offset = {
           width: Math.round(angular.isNumber(elemBCR.width) ? elemBCR.width : elem.offsetWidth),
           height: Math.round(angular.isNumber(elemBCR.height) ? elemBCR.height : elem.offsetHeight),
           top: Math.round(elemBCR.top + ($window.pageYOffset || $document[0].documentElement.scrollTop)),
           left: Math.round(elemBCR.left + ($window.pageXOffset || $document[0].documentElement.scrollLeft))
         };
+
+        if (includeMargins) {
+          var styles = window.getComputedStyle(elem);
+          var verticalMargin = this.parseStyle(styles.marginTop) + this.parseStyle(styles.marginBottom);
+          var horisontalMargin = this.parseStyle(styles.marginLeft) + this.parseStyle(styles.marginRight);
+
+          offset.height += verticalMargin;
+          offset.width += horisontalMargin;
+        }
+
+        return offset;
       },
 
       /**
@@ -2533,6 +2544,8 @@ angular.module('ui.bootstrap.position', [])
        *   </ul>
        * @param {boolean=} [appendToBody=false] - Should the top and left values returned
        *   be calculated from the body element, default is false.
+       * @param {boolean=} [includeMargins=false] - Should margins count into targetElem width
+       *    in position claculation
        *
        * @returns {object} An object with the following properties:
        *   <ul>
@@ -2541,13 +2554,22 @@ angular.module('ui.bootstrap.position', [])
        *     <li>**placement**: The resolved placement.</li>
        *   </ul>
        */
-      positionElements: function(hostElem, targetElem, placement, appendToBody) {
+      positionElements: function(hostElem, targetElem, placement, appendToBody, includeMargins) {
         hostElem = this.getRawNode(hostElem);
         targetElem = this.getRawNode(targetElem);
 
         // need to read from prop to support tests.
         var targetWidth = angular.isDefined(targetElem.offsetWidth) ? targetElem.offsetWidth : targetElem.prop('offsetWidth');
         var targetHeight = angular.isDefined(targetElem.offsetHeight) ? targetElem.offsetHeight : targetElem.prop('offsetHeight');
+
+        if (includeMargins) {
+          var styles = window.getComputedStyle(targetElem);
+          var verticalMargin = this.parseStyle(styles.marginTop) + this.parseStyle(styles.marginBottom);
+          var horisontalMargin = this.parseStyle(styles.marginLeft) + this.parseStyle(styles.marginRight);
+
+          targetHeight += verticalMargin;
+          targetWidth += horisontalMargin;
+        }
 
         placement = this.parsePlacement(placement);
 
@@ -2564,16 +2586,16 @@ angular.module('ui.bootstrap.position', [])
           };
 
           placement[0] = placement[0] === 'top' && adjustedSize.height > viewportOffset.top && adjustedSize.height <= viewportOffset.bottom ? 'bottom' :
-                         placement[0] === 'bottom' && adjustedSize.height > viewportOffset.bottom && adjustedSize.height <= viewportOffset.top ? 'top' :
-                         placement[0] === 'left' && adjustedSize.width > viewportOffset.left && adjustedSize.width <= viewportOffset.right ? 'right' :
-                         placement[0] === 'right' && adjustedSize.width > viewportOffset.right && adjustedSize.width <= viewportOffset.left ? 'left' :
-                         placement[0];
+            placement[0] === 'bottom' && adjustedSize.height > viewportOffset.bottom && adjustedSize.height <= viewportOffset.top ? 'top' :
+              placement[0] === 'left' && adjustedSize.width > viewportOffset.left && adjustedSize.width <= viewportOffset.right ? 'right' :
+                placement[0] === 'right' && adjustedSize.width > viewportOffset.right && adjustedSize.width <= viewportOffset.left ? 'left' :
+                  placement[0];
 
           placement[1] = placement[1] === 'top' && adjustedSize.height - hostElemPos.height > viewportOffset.bottom && adjustedSize.height - hostElemPos.height <= viewportOffset.top ? 'bottom' :
-                         placement[1] === 'bottom' && adjustedSize.height - hostElemPos.height > viewportOffset.top && adjustedSize.height - hostElemPos.height <= viewportOffset.bottom ? 'top' :
-                         placement[1] === 'left' && adjustedSize.width - hostElemPos.width > viewportOffset.right && adjustedSize.width - hostElemPos.width <= viewportOffset.left ? 'right' :
-                         placement[1] === 'right' && adjustedSize.width - hostElemPos.width > viewportOffset.left && adjustedSize.width - hostElemPos.width <= viewportOffset.right ? 'left' :
-                         placement[1];
+            placement[1] === 'bottom' && adjustedSize.height - hostElemPos.height > viewportOffset.top && adjustedSize.height - hostElemPos.height <= viewportOffset.bottom ? 'top' :
+              placement[1] === 'left' && adjustedSize.width - hostElemPos.width > viewportOffset.right && adjustedSize.width - hostElemPos.width <= viewportOffset.left ? 'right' :
+                placement[1] === 'right' && adjustedSize.width - hostElemPos.width > viewportOffset.left && adjustedSize.width - hostElemPos.width <= viewportOffset.right ? 'left' :
+                  placement[1];
 
           if (placement[1] === 'center') {
             if (PLACEMENT_REGEX.vertical.test(placement[0])) {
@@ -2693,7 +2715,7 @@ angular.module('ui.bootstrap.position', [])
 
         placement = this.parsePlacement(placement);
         if (placement[1] === 'center') {
-          var arrowElemOffset = this.offset(arrowElem);
+          var arrowElemOffset = this.offset(arrowElem, true);
           if (PLACEMENT_REGEX.vertical.test(placement[0])) {
             var aHW = arrowElemOffset.width / 2;
             var eHW = this.offset(elem).width / 2;
@@ -2719,19 +2741,21 @@ angular.module('ui.bootstrap.position', [])
         borderRadiusProp += '-radius';
         var borderRadius = $window.getComputedStyle(isTooltip ? innerElem : elem)[borderRadiusProp];
 
-        switch (placement[0]) {
-          case 'top':
-            arrowCss.bottom = isTooltip ? '0' : '-' + borderWidth;
-            break;
-          case 'bottom':
-            arrowCss.top = isTooltip ? '0' : '-' + borderWidth;
-            break;
-          case 'left':
-            arrowCss.right = isTooltip ? '0' : '-' + borderWidth;
-            break;
-          case 'right':
-            arrowCss.left = isTooltip ? '0' : '-' + borderWidth;
-            break;
+        if (isTooltip) {
+          switch (placement[0]) {
+            case 'top':
+              arrowCss.bottom = '0';
+              break;
+            case 'bottom':
+              arrowCss.top = '0';
+              break;
+            case 'left':
+              arrowCss.right = '0';
+              break;
+            case 'right':
+              arrowCss.left = '0';
+              break;
+          }
         }
 
         arrowCss[placement[1]] = borderRadius;
@@ -3604,8 +3628,9 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
 
       self.dropdownMenu.css(css);
     }
-
-    var openContainer = appendTo ? appendTo : $element.find('div');
+      
+    // find openContainer by uib-dropdown-menu directive
+    var openContainer = appendTo ? appendTo : angular.element($element[0].querySelector("[uib-dropdown-menu]"));
     var dropdownOpenClass = appendTo ? appendToOpenClass : openClass;
     var hasOpenClass = openContainer.hasClass(dropdownOpenClass);
     var isOnlyOpen = uibDropdownService.isOnlyOpen($scope, appendTo);
@@ -3617,6 +3642,10 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
       } else {
         toggleClass = isOpen ? 'addClass' : 'removeClass';
       }
+        
+      // original Bootstrap 4 dropdown sets openClass on both dropdownMenu and element
+      $animate[toggleClass]($element, dropdownOpenClass);
+      
       $animate[toggleClass](openContainer, dropdownOpenClass).then(function() {
         if (angular.isDefined(isOpen) && isOpen !== wasOpen) {
           toggleInvoker($scope, { open: !!isOpen });
@@ -5068,21 +5097,25 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
 
               if (!positionTimeout) {
                 positionTimeout = $timeout(function() {
-                  var ttPosition = $position.positionElements(element, tooltip, ttScope.placement, appendToBody);
-                  var initialHeight = angular.isDefined(tooltip.offsetHeight) ? tooltip.offsetHeight : tooltip.prop('offsetHeight');
-                  var elementPos = appendToBody ? $position.offset(element) : $position.position(element);
-                  tooltip.css({ top: ttPosition.top + 'px', left: ttPosition.left + 'px' });
-                  var placementClasses = ttPosition.placement.split('-');
-
+                  var placementClasses = $position.parsePlacement(ttScope.placement);
+                  var placement = placementClasses[1] === 'center' ? placementClasses[0] : placementClasses[0] + '-' + placementClasses[1];
+				  
+                  // need to add classes prior to placement to allow correct tooltip width calculations
                   if (!tooltip.hasClass(placementClasses[0])) {
                     tooltip.removeClass(lastPlacement.split('-')[0]);
                     tooltip.addClass(placementClasses[0]);
                   }
 
-                  if (!tooltip.hasClass(options.placementClassPrefix + ttPosition.placement)) {
+                  if (!tooltip.hasClass(options.placementClassPrefix + placement)) {
                     tooltip.removeClass(options.placementClassPrefix + lastPlacement);
-                    tooltip.addClass(options.placementClassPrefix + ttPosition.placement);
+                    tooltip.addClass(options.placementClassPrefix + placement);
                   }
+                  
+                  // Take into account tooltup margins, since boostrap css draws tooltip arrow inside margins
+                  var ttPosition = $position.positionElements(element, tooltip, ttScope.placement, appendToBody, true);
+                  var initialHeight = angular.isDefined(tooltip.offsetHeight) ? tooltip.offsetHeight : tooltip.prop('offsetHeight');
+                  var elementPos = appendToBody ? $position.offset(element) : $position.position(element);
+                  tooltip.css({ top: ttPosition.top + 'px', left: ttPosition.left + 'px' });
 
                   adjustmentTimeout = $timeout(function() {
                     var currentHeight = angular.isDefined(tooltip.offsetHeight) ? tooltip.offsetHeight : tooltip.prop('offsetHeight');
@@ -5767,7 +5800,8 @@ angular.module('ui.bootstrap.progressbar', [])
     require: '^uibProgress',
     scope: {
       value: '=',
-      type: '@'
+      type: '@',
+      striped: '=?'
     },
     templateUrl: 'uib/template/progressbar/bar.html',
     link: function(scope, element, attrs, progressCtrl) {
@@ -5784,7 +5818,8 @@ angular.module('ui.bootstrap.progressbar', [])
     scope: {
       value: '=',
       maxParam: '=?max',
-      type: '@'
+      type: '@',
+      striped: '=?'
     },
     templateUrl: 'uib/template/progressbar/progressbar.html',
     link: function(scope, element, attrs, progressCtrl) {
