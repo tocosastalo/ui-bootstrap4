@@ -27,7 +27,7 @@
 </style>
 
 <script type="text/ng-template" id="customTemplate.html">
-  <a>
+  <a class="dropdown-item">
       <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
       <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
   </a>
