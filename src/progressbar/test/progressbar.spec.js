@@ -10,8 +10,9 @@ describe('progressbar directive', function() {
     $rootScope.$digest();
   }));
 
-  const BAR_CLASS = 'progress-bar';
-  const BG_CLASS = 'bg-';
+  var BAR_CLASS = 'progress-bar';
+  var BG_PREFIX = 'bg';
+  var STRIPED_CLASS = 'progress-bar-striped';
 
   function getBar(i) {
     return element.children().eq(i);
@@ -157,7 +158,6 @@ describe('progressbar directive', function() {
     });
   });
 
-
   describe('"type" attribute', function() {
     beforeEach(inject(function() {
       $rootScope.type = 'success';
@@ -167,7 +167,7 @@ describe('progressbar directive', function() {
 
     it('should use correct classes', function() {
       expect(getBar(0)).toHaveClass(BAR_CLASS);
-      expect(getBar(0)).toHaveClass(BG_CLASS + 'success');
+      expect(getBar(0)).toHaveClass(BG_PREFIX + '-success');
     });
 
     it('should change classes if type changed', function() {
@@ -177,8 +177,31 @@ describe('progressbar directive', function() {
 
       var barEl = getBar(0);
       expect(barEl).toHaveClass(BAR_CLASS);
-      expect(barEl).not.toHaveClass(BG_CLASS + 'success');
-      expect(barEl).toHaveClass(BG_CLASS + 'warning');
+      expect(barEl).not.toHaveClass(BG_PREFIX + '-success');
+      expect(barEl).toHaveClass(BG_PREFIX + '-warning');
+    });
+  });
+
+  describe('"striped" attribute', function() {
+    beforeEach(inject(function() {
+      $rootScope.striped = true;
+      element = $compile('<uib-progressbar value="value" striped="striped"></uib-progressbar>')($rootScope);
+      $rootScope.$digest();
+    }));
+
+    it('should use correct classes', function() {
+      expect(getBar(0)).toHaveClass(BAR_CLASS);
+      expect(getBar(0)).toHaveClass(STRIPED_CLASS);
+    });
+
+    it('should change classes if striped changed', function() {
+      $rootScope.striped = false;
+      $rootScope.value += 1;
+      $rootScope.$digest();
+
+      var barEl = getBar(0);
+      expect(barEl).toHaveClass(BAR_CLASS);
+      expect(barEl).not.toHaveClass(STRIPED_CLASS);
     });
   });
 
@@ -207,14 +230,14 @@ describe('progressbar directive', function() {
     });
 
     it('uses correct classes', function() {
-      expect(getBar(0)).toHaveClass(BG_CLASS + 'success');
-      expect(getBar(0)).not.toHaveClass(BG_CLASS + 'warning');
+      expect(getBar(0)).toHaveClass(BG_PREFIX + '-success');
+      expect(getBar(0)).not.toHaveClass(BG_PREFIX + '-warning');
 
-      expect(getBar(1)).not.toHaveClass(BG_CLASS + 'success');
-      expect(getBar(1)).toHaveClass(BG_CLASS + 'warning');
+      expect(getBar(1)).not.toHaveClass(BG_PREFIX + '-success');
+      expect(getBar(1)).toHaveClass(BG_PREFIX + '-warning');
 
-      expect(getBar(2)).not.toHaveClass(BG_CLASS + 'success');
-      expect(getBar(2)).not.toHaveClass(BG_CLASS + 'warning');
+      expect(getBar(2)).not.toHaveClass(BG_PREFIX + '-success');
+      expect(getBar(2)).not.toHaveClass(BG_PREFIX + '-warning');
     });
 
     it('should change classes if type changed', function() {
@@ -225,15 +248,15 @@ describe('progressbar directive', function() {
       ];
       $rootScope.$digest();
 
-      expect(getBar(0)).not.toHaveClass(BG_CLASS + 'success');
-      expect(getBar(0)).toHaveClass(BG_CLASS + 'warning');
+      expect(getBar(0)).not.toHaveClass(BG_PREFIX + '-success');
+      expect(getBar(0)).toHaveClass(BG_PREFIX + '-warning');
 
-      expect(getBar(1)).not.toHaveClass(BG_CLASS + 'success');
-      expect(getBar(1)).not.toHaveClass(BG_CLASS + 'warning');
+      expect(getBar(1)).not.toHaveClass(BG_PREFIX + '-success');
+      expect(getBar(1)).not.toHaveClass(BG_PREFIX + '-warning');
 
-      expect(getBar(2)).toHaveClass(BG_CLASS + 'info');
-      expect(getBar(2)).not.toHaveClass(BG_CLASS + 'success');
-      expect(getBar(2)).not.toHaveClass(BG_CLASS + 'warning');
+      expect(getBar(2)).toHaveClass(BG_PREFIX + '-info');
+      expect(getBar(2)).not.toHaveClass(BG_PREFIX + '-success');
+      expect(getBar(2)).not.toHaveClass(BG_PREFIX + '-warning');
     });
 
     it('should change classes if type changed', function() {
@@ -243,10 +266,9 @@ describe('progressbar directive', function() {
       $rootScope.$digest();
 
       expect(element.children().length).toBe(1);
-
-      expect(getBar(0)).toHaveClass(BG_CLASS + 'info');
-      expect(getBar(0)).not.toHaveClass(BG_CLASS + 'success');
-      expect(getBar(0)).not.toHaveClass(BG_CLASS + 'warning');
+      expect(getBar(0)).toHaveClass(BG_PREFIX + '-info');
+      expect(getBar(0)).not.toHaveClass(BG_PREFIX + '-success');
+      expect(getBar(0)).not.toHaveClass(BG_PREFIX + '-warning');
     });
 
     it('should have the correct aria markup', function() {

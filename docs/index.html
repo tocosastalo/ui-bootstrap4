@@ -5758,7 +5758,7 @@ Provide a set of defaults for certain tooltip and popover attributes. Currently 
 </style>
 
 <script type="text/ng-template" id="customTemplate.html">
-  <a>
+  <a class="dropdown-item">
       <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
       <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
   </a>
@@ -5984,7 +5984,7 @@ Comprehension Angular expression (see <a href="http://docs.angularjs.org/api/ng.
 &lt;/style&gt;
 
 &lt;script type=&quot;text/ng-template&quot; id=&quot;customTemplate.html&quot;&gt;
-  &lt;a&gt;
+  &lt;a class=&quot;dropdown-item&quot;&gt;
       &lt;img ng-src=&quot;http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}&quot; width=&quot;16&quot;&gt;
       &lt;span ng-bind-html=&quot;match.label | uibTypeaheadHighlight:query&quot;&gt;&lt;/span&gt;
   &lt;/a&gt;
