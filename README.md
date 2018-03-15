@@ -2,7 +2,7 @@
 
 _[AngularJS](http://angularjs.org/) directives specific to [Bootstrap](http://getbootstrap.com)_
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ui-bootstrap4/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/ui-bootstrap4/Lobby](https://badges.gitter.im/ui-bootstrap4/Lobby.svg)](https://gitter.im/ui-bootstrap4/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://secure.travis-ci.org/morgul/ui-bootstrap4.svg)](http://travis-ci.org/morgul/ui-bootstrap4)
 [![devDependency Status](https://david-dm.org/morgul/ui-bootstrap4/dev-status.svg?branch=master)](https://david-dm.org/morgul/ui-bootstrap4#info=devDependencies)
 
