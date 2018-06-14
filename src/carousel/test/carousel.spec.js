@@ -75,7 +75,7 @@ describe('carousel', function() {
     });
 
     it('should create clickable prev nav button', function() {
-      var navPrev = elm.find('a.left');
+      var navPrev = elm.find('a.carousel-control-prev');
       var navNext = elm.find('a.carousel-control-next');
 
       expect(navPrev.length).toBe(1);
@@ -190,7 +190,7 @@ describe('carousel', function() {
       var navNext = elm.find('a.carousel-control-next');
       expect(navNext.length).not.toBe(0);
 
-      var navPrev = elm.find('a.left');
+      var navPrev = elm.find('a.carousel-control-prev');
       expect(navPrev.length).not.toBe(0);
     });
 
@@ -206,7 +206,7 @@ describe('carousel', function() {
     });
 
     it('should go to prev when clicking prev button', function() {
-      var navPrev = elm.find('a.left');
+      var navPrev = elm.find('a.carousel-control-prev');
       testSlideActive(0);
       navPrev.click();
       testSlideActive(2);
@@ -455,7 +455,7 @@ describe('carousel', function() {
 
     it('should select prev after order change', function() {
       testSlideActive(1);
-      var prev = elm.find('a.left');
+      var prev = elm.find('a.carousel-control-prev');
       prev.click();
       testSlideActive(0);
     });
