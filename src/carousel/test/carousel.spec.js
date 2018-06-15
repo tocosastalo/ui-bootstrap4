@@ -75,8 +75,8 @@ describe('carousel', function() {
     });
 
     it('should create clickable prev nav button', function() {
-      var navPrev = elm.find('a.left');
-      var navNext = elm.find('a.right');
+      var navPrev = elm.find('a.carousel-control-prev');
+      var navNext = elm.find('a.carousel-control-next');
 
       expect(navPrev.length).toBe(1);
       expect(navNext.length).toBe(1);
@@ -144,10 +144,10 @@ describe('carousel', function() {
       var indicators = elm.find('ol.carousel-indicators > li');
       expect(indicators.length).toBe(0);
 
-      var navNext = elm.find('a.right');
+      var navNext = elm.find('a.carousel-control-prev');
       expect(navNext.length).toBe(0);
 
-      var navPrev = elm.find('a.left');
+      var navPrev = elm.find('a.carousel-control-next');
       expect(navPrev.length).toBe(0);
     });
 
@@ -160,7 +160,7 @@ describe('carousel', function() {
       $scope.isPrevDisabled();
       scope.$apply();
 
-      var navPrev = elm.find('a.left');
+      var navPrev = elm.find('a.carousel-control-prev');
       expect(navPrev.hasClass('disabled')).toBe(true);
     });
 
@@ -179,7 +179,7 @@ describe('carousel', function() {
       $scope.isNextDisabled();
       scope.$apply();
 
-      var navNext = elm.find('a.right');
+      var navNext = elm.find('a.carousel-control-prev');
       expect(navNext.hasClass('disabled')).toBe(true);
     });
 
@@ -187,15 +187,15 @@ describe('carousel', function() {
       var indicators = elm.find('ol.carousel-indicators > li');
       expect(indicators.length).not.toBe(0);
 
-      var navNext = elm.find('a.right');
+      var navNext = elm.find('a.carousel-control-next');
       expect(navNext.length).not.toBe(0);
 
-      var navPrev = elm.find('a.left');
+      var navPrev = elm.find('a.carousel-control-prev');
       expect(navPrev.length).not.toBe(0);
     });
 
     it('should go to next when clicking next button', function() {
-      var navNext = elm.find('a.right');
+      var navNext = elm.find('a.carousel-control-next');
       testSlideActive(0);
       navNext.click();
       testSlideActive(1);
@@ -206,7 +206,7 @@ describe('carousel', function() {
     });
 
     it('should go to prev when clicking prev button', function() {
-      var navPrev = elm.find('a.left');
+      var navPrev = elm.find('a.carousel-control-prev');
       testSlideActive(0);
       navPrev.click();
       testSlideActive(2);
@@ -326,7 +326,7 @@ describe('carousel', function() {
 
     it('should not change if next is clicked while transitioning', function() {
       var carouselScope = elm.children().scope();
-      var next = elm.find('a.right');
+      var next = elm.find('a.carousel-control-next');
 
       testSlideActive(0);
       carouselScope.$currentTransition = true;
@@ -387,7 +387,7 @@ describe('carousel', function() {
 
     it('issue 4390 - should reset the currentTransition if there are no slides', function() {
       var carouselScope = elm.children().scope();
-      var next = elm.find('a.right');
+      var next = elm.find('a.carousel-control-next');
       scope.slides = [
         {content:'new1', index: 1},
         {content:'new2', index: 2},
@@ -448,14 +448,14 @@ describe('carousel', function() {
 
     it('should select next after order change', function() {
       testSlideActive(1);
-      var next = elm.find('a.right');
+      var next = elm.find('a.carousel-control-next');
       next.click();
       testSlideActive(2);
     });
 
     it('should select prev after order change', function() {
       testSlideActive(1);
-      var prev = elm.find('a.left');
+      var prev = elm.find('a.carousel-control-prev');
       prev.click();
       testSlideActive(0);
     });
