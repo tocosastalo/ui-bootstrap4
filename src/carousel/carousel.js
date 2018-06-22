@@ -268,7 +268,7 @@ angular.module('ui.bootstrap.carousel', [])
       return attrs.templateUrl || 'uib/template/carousel/carousel.html';
     },
     scope: {
-      active: '=',
+      active: '=?',
       interval: '=',
       noTransition: '=',
       noPause: '=',
