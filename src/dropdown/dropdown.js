@@ -195,7 +195,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
 
   scope.focusDropdownEntry = function(keyCode) {
     var elems = self.dropdownMenu ? //If append to body is used.
-      angular.element(self.dropdownMenu).find('a') :
+      angular.element(self.dropdownMenu).find('.dropdown-item') :
       $element.find('div').eq(0).find('a.');
 
     switch (keyCode) {
