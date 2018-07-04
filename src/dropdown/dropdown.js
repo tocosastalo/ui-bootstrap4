@@ -105,7 +105,6 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
       return;
     }
 
-    openScope.focusToggleElement();
     openScope.isOpen = false;
 
     if (!$rootScope.$$phase) {
@@ -195,7 +194,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
 
   scope.focusDropdownEntry = function(keyCode) {
     var elems = self.dropdownMenu ? //If append to body is used.
-      angular.element(self.dropdownMenu).find('a') :
+      angular.element(self.dropdownMenu).find('.dropdown-item') :
       $element.find('div').eq(0).find('a.');
 
     switch (keyCode) {
@@ -432,6 +431,21 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
 
       element.on('click', toggleDropdown);
 
+      var openDropdown = function(event) {
+        if (event.which === 40 && !dropdownCtrl.isOpen()) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          if (!element.hasClass('disabled') && !attrs.disabled) {
+            scope.$apply(function() {
+              dropdownCtrl.toggle();
+            });
+          }
+        }
+      };
+
+      element.on('keydown', openDropdown);
+
       // WAI-ARIA
       element.attr({ 'aria-haspopup': true, 'aria-expanded': false });
       scope.$watch(dropdownCtrl.isOpen, function(isOpen) {
@@ -440,6 +454,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
 
       scope.$on('$destroy', function() {
         element.off('click', toggleDropdown);
+        element.off('keydown', openDropdown);
       });
     }
   };
