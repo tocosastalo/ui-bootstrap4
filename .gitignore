@@ -20,4 +20,3 @@ results
 node_modules
 npm-debug.log
 
-template/**/*.js
